@@ -1,11 +1,11 @@
-package com.github.kimdohun0104.findatemplatepluginandroid.actions
+package kr.co.finda.androidtemplate.actions
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
 import com.intellij.pom.Navigatable
-import com.github.kimdohun0104.findatemplatepluginandroid.dialogs.CreateFindaTemplateDialog
+import kr.co.finda.androidtemplate.dialogs.CreateFindaTemplateDialog
 
 class CreateFindaTemplateAction : AnAction() {
 

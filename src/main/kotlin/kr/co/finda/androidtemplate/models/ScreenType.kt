@@ -1,4 +1,4 @@
-package com.github.kimdohun0104.findatemplatepluginandroid.models
+package kr.co.finda.androidtemplate.models
 
 enum class ScreenType {
     Activity,

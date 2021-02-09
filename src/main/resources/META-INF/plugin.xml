@@ -1,13 +1,13 @@
 <idea-plugin>
-    <id>com.github.kimdohun0104.findatemplatepluginandroid</id>
+    <id>kr.co.finda.androidtemplate</id>
     <name>FindaTemplatePlugin-Android</name>
     <vendor>kimdohun0104</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <actions>
-        <action id="com.github.kimdohun0104.findatemplatepluginandroid.actions.CreateFindaTemplateAction"
-                class="com.github.kimdohun0104.findatemplatepluginandroid.actions.CreateFindaTemplateAction"
+        <action id="kr.co.finda.androidtemplate.actions.CreateFindaTemplateAction"
+                class="kr.co.finda.androidtemplate.actions.CreateFindaTemplateAction"
                 text="New Finda Template"
                 description="This is Finda"
                 icon="Icons.FindaLogo">
