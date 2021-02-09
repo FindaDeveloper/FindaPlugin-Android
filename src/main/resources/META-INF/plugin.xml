@@ -1,7 +1,7 @@
 <idea-plugin>
-    <id>org.jetbrains.plugins.template</id>
-    <name>Template</name>
-    <vendor>JetBrains</vendor>
+    <id>com.github.kimdohun0104.findatemplatepluginandroid</id>
+    <name>FindaTemplatePlugin-Android</name>
+    <vendor>kimdohun0104</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
