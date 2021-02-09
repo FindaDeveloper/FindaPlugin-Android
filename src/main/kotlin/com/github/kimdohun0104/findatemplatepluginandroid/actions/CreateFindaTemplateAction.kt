@@ -1,13 +1,11 @@
-
-
-package org.jetbrains.plugins.template.actions
+package com.github.kimdohun0104.findatemplatepluginandroid.actions
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
 import com.intellij.pom.Navigatable
-import org.jetbrains.plugins.template.dialogs.CreateFindaTemplateDialog
+import com.github.kimdohun0104.findatemplatepluginandroid.dialogs.CreateFindaTemplateDialog
 
 class CreateFindaTemplateAction : AnAction() {
 

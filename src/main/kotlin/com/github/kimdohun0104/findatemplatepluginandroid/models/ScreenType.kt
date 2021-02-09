@@ -1,4 +1,4 @@
-package org.jetbrains.plugins.template.models
+package com.github.kimdohun0104.findatemplatepluginandroid.models
 
 enum class ScreenType {
     Activity,

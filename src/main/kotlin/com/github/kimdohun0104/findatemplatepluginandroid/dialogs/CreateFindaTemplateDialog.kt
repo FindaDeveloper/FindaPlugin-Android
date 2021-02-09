@@ -1,10 +1,10 @@
-package org.jetbrains.plugins.template.dialogs
+package com.github.kimdohun0104.findatemplatepluginandroid.dialogs
 
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.EnumComboBoxModel
 import com.intellij.ui.components.JBTextField
 import com.intellij.ui.layout.panel
-import org.jetbrains.plugins.template.models.ScreenType
+import com.github.kimdohun0104.findatemplatepluginandroid.models.ScreenType
 import javax.swing.JComponent
 
 class CreateFindaTemplateDialog : DialogWrapper(true) {
