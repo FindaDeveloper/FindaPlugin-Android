@@ -29,12 +29,6 @@ sealed class GeneratedFileInfo(
         layoutFilePrefix = "fragment"
     )
 
-    data class Dialog(override val name: String) : GeneratedFileInfo(
-        name = name,
-        codeFilePostfix = "DialogFragment",
-        layoutFilePrefix = "dialog"
-    )
-
     data class BottomSheet(override val name: String) : GeneratedFileInfo(
         name = name,
         codeFilePostfix = "BottomSheet",

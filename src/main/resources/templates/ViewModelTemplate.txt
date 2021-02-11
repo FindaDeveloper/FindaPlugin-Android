@@ -1,1 +1,8 @@
-class ViewModel
+package $PACKAGE$
+
+import kr.co.finda.finda.ui.base.BaseViewModel
+
+class $NAME$ViewModel : BaseViewModel() {
+
+
+}

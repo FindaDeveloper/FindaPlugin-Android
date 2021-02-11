@@ -10,9 +10,6 @@ enum class ScreenType(
         codeFileTemplate = "FragmentTemplate.txt"
     ),
 
-    Dialog(
-        codeFileTemplate = "DialogTemplate.txt"
-    ),
     BottomSheet(
         codeFileTemplate = "BottomSheetTemplate.txt"
     );
@@ -22,7 +19,6 @@ enum class ScreenType(
             Activity -> GeneratedFileInfo.Activity(name)
             Fragment -> GeneratedFileInfo.Fragment(name)
             BottomSheet -> GeneratedFileInfo.BottomSheet(name)
-            Dialog -> GeneratedFileInfo.Dialog(name)
         }
     }
 }
