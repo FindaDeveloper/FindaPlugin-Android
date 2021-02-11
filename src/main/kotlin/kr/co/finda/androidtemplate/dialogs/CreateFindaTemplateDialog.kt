@@ -1,13 +1,21 @@
 package kr.co.finda.androidtemplate.dialogs
 
 import com.intellij.openapi.ui.DialogWrapper
+import com.intellij.openapi.vfs.VfsUtil
+import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.EnumComboBoxModel
 import com.intellij.ui.components.JBTextField
 import com.intellij.ui.layout.panel
+import com.intellij.util.ResourceUtil
 import kr.co.finda.androidtemplate.models.ScreenType
+import kr.co.finda.androidtemplate.models.GeneratedFileInfo
+import kr.co.finda.androidtemplate.models.TemplateInfo
+import java.io.File
 import javax.swing.JComponent
 
-class CreateFindaTemplateDialog : DialogWrapper(true) {
+class CreateFindaTemplateDialog(
+    private val virtualFile: VirtualFile
+) : DialogWrapper(true) {
 
     private val screenTypeModel = EnumComboBoxModel(ScreenType::class.java)
     private lateinit var nameTextField: JBTextField
@@ -35,11 +43,12 @@ class CreateFindaTemplateDialog : DialogWrapper(true) {
     }
 
     override fun doOKAction() {
-        val selectedScreenType = screenTypeModel.selectedItem
-        val screenName = nameTextField.text
+        val templateInfo = TemplateInfo(screenTypeModel.selectedItem)
+        val generatedFileInfo = screenTypeModel.selectedItem.getGeneratedFileInfo(nameTextField.text)
 
-        println("selected: ${selectedScreenType}")
-        println("value: ${screenName}")
+        val codeFile = virtualFile.createChildData(this, generatedFileInfo.codeFileName)
+        VfsUtil.saveText(codeFile, templateInfo.codeTemplateContent)
+
         super.doOKAction()
     }
 }

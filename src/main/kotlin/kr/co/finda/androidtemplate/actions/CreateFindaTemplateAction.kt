@@ -11,10 +11,10 @@ class CreateFindaTemplateAction : AnAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
         val currentProject = e.project
-        val navigatable: Navigatable? = e.getData(CommonDataKeys.NAVIGATABLE)
+        val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE)
 
-        if (navigatable != null) {
-            CreateFindaTemplateDialog().showAndGet()
+        if (virtualFile != null) {
+            CreateFindaTemplateDialog(virtualFile).showAndGet()
         } else {
             Messages.showMessageDialog(
                 currentProject,

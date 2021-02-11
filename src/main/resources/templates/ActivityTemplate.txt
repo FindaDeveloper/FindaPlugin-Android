@@ -1,0 +1,6 @@
+package templates
+
+class $NAME$Activity : AppCompatActivity() {
+
+
+}
