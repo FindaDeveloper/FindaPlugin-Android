@@ -1,12 +1,12 @@
-package $PACKAGE$
+package @PACKAGE@
 
 import kr.co.finda.finda.R
-import kr.co.finda.finda.databinding.Activity$NAME$Binding
+import kr.co.finda.finda.databinding.Activity@NAME@Binding
 import kr.co.finda.finda.ui.base.BaseActivity
 
-class $NAME$Activity : BaseActivity<Activity$NAME$Binding, $NAME$ViewModel>(
-    R.layout.$LAYOUT_NAME$,
-    $NAME$ViewModel::class.java
+class @NAME@Activity : BaseActivity<Activity@NAME@Binding, @NAME@ViewModel>(
+    R.layout.@LAYOUT_NAME@,
+    @NAME@ViewModel::class.java
 ) {
 
     override fun setBindingVariables() {

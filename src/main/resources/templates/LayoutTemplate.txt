@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewModel"
-            type="$VM_PACKAGE$" />
+            type="@VM_PACKAGE@" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

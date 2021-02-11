@@ -1,12 +1,12 @@
-package $PACKAGE$
+package @PACKAGE@
 
 import kr.co.finda.finda.R
-import kr.co.finda.finda.databinding.BottomSheet$NAME$Binding
+import kr.co.finda.finda.databinding.BottomSheet@NAME@Binding
 import kr.co.finda.finda.ui.base.BaseBottomSheet
 
-class $NAME$BottomSheet : BaseBottomSheet<BottomSheet$NAME$Binding, $NAME$ViewModel>(
-    R.layout.$LAYOUT_NAME$,
-    $NAME$ViewModel::class.java
+class @NAME@BottomSheet : BaseBottomSheet<BottomSheet@NAME@Binding, @NAME@ViewModel>(
+    R.layout.@LAYOUT_NAME@,
+    @NAME@ViewModel::class.java
 ) {
 
     override fun setBindingVariables() {

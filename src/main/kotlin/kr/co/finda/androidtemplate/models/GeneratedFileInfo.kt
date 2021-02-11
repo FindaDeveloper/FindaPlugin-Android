@@ -9,13 +9,13 @@ sealed class GeneratedFileInfo(
 ) {
 
     val codeFileName: String
-        get() = "${name}${codeFilePostfix}.kt"
+        get() = "${name}${codeFilePostfix}"
 
     val viewModelFileName: String
-        get() = "${name}ViewModel.kt"
+        get() = "${name}ViewModel"
 
     val layoutFileName: String
-        get() = "${layoutFilePrefix}_${name.decapitalizeWithUnderBar()}.xml"
+        get() = "${layoutFilePrefix}_${name.decapitalizeWithUnderBar()}"
 
     data class Activity(override val name: String) : GeneratedFileInfo(
         name = name,
