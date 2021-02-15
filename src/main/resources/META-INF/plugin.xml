@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>kr.co.finda.androidtemplate</id>
-    <name>FindaTemplatePlugin-Android</name>
+    <name>FindaTemplate</name>
     <vendor>kimdohun0104</vendor>
 
     <depends>com.intellij.modules.platform</depends>
