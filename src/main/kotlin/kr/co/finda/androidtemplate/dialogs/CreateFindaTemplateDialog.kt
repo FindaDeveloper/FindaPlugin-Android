@@ -1,23 +1,21 @@
 package kr.co.finda.androidtemplate.dialogs
 
-import com.intellij.openapi.actionSystem.CommonDataKeys
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
-import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.ui.EnumComboBoxModel
 import com.intellij.ui.components.JBTextField
 import com.intellij.ui.layout.panel
-import com.intellij.util.ResourceUtil
 import kr.co.finda.androidtemplate.ext.replaceAll
-import kr.co.finda.androidtemplate.models.ScreenType
 import kr.co.finda.androidtemplate.models.GeneratedFileInfo
+import kr.co.finda.androidtemplate.models.ScreenType
 import kr.co.finda.androidtemplate.models.TemplateInfo
-import java.io.File
 import javax.swing.JComponent
 
 class CreateFindaTemplateDialog(
+    private val project: Project,
     private val virtualFile: VirtualFile
 ) : DialogWrapper(true) {
 
@@ -55,6 +53,7 @@ class CreateFindaTemplateDialog(
 
         createCodeFile(generatedFileInfo, templateInfo.codeTemplateContent)
         createViewModelFile(generatedFileInfo, templateInfo.viewModelTemplateContent)
+        createLayoutFile(generatedFileInfo, templateInfo.layoutTemplateContent)
 
         super.doOKAction()
     }
@@ -85,8 +84,18 @@ class CreateFindaTemplateDialog(
     }
 
     private fun createLayoutFile(
-
+        generatedFileInfo: GeneratedFileInfo,
+        templateContent: String
     ) {
+        val layoutDirectory = VirtualFileManager.getInstance()
+            .findFileByUrl("file://${project.basePath}/src/main/res/layout")
+        val layoutFile = layoutDirectory?.createChildData(this, "${generatedFileInfo.layoutFileName}.xml")
 
+        val content = templateContent
+            .replaceAll("@VM_PACKAGE@", generatedFileInfo.viewModelFileName)
+
+        layoutFile?.let {
+            VfsUtil.saveText(layoutFile, content)
+        }
     }
 }

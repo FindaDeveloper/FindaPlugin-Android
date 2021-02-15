@@ -4,6 +4,8 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
+import com.intellij.openapi.vfs.VirtualFile
+import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.pom.Navigatable
 import kr.co.finda.androidtemplate.dialogs.CreateFindaTemplateDialog
 
@@ -13,8 +15,8 @@ class CreateFindaTemplateAction : AnAction() {
         val currentProject = e.project
         val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE)
 
-        if (virtualFile != null) {
-            CreateFindaTemplateDialog(virtualFile).showAndGet()
+        if (virtualFile != null && currentProject != null) {
+            CreateFindaTemplateDialog(currentProject, virtualFile).showAndGet()
         } else {
             Messages.showMessageDialog(
                 currentProject,
