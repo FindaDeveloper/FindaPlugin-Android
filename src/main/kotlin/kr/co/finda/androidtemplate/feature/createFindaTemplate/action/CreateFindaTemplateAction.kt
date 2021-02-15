@@ -8,12 +8,12 @@ import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.VirtualFile
 import icons.Icons
 import kr.co.finda.androidtemplate.PluginError
-import kr.co.finda.androidtemplate.dialogs.CreateFindaTemplateDialog
+import kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog.CreateFindaTemplateDialog
 
-class CreateFindaTemplateAction : AnAction(), CreateFindaTemplateContract.View {
+class CreateFindaTemplateAction : AnAction(), CreateFindaTemplateActionContract.View {
 
-    private val presenter: CreateFindaTemplatePresenter by lazy {
-        CreateFindaTemplatePresenter(this)
+    private val presenter: CreateFindaTemplateActionPresenter by lazy {
+        CreateFindaTemplateActionPresenter(this)
     }
 
     override fun actionPerformed(e: AnActionEvent) {

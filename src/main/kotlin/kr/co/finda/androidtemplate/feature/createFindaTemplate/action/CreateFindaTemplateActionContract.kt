@@ -5,7 +5,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import kr.co.finda.androidtemplate.PluginError
 
-interface CreateFindaTemplateContract {
+interface CreateFindaTemplateActionContract {
 
     interface View {
         fun showErrorDialog(

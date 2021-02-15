@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate.dialogs
+package kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper

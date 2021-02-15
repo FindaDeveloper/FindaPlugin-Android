@@ -5,9 +5,9 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import kr.co.finda.androidtemplate.PluginError
 
-class CreateFindaTemplatePresenter(
-    private val view: CreateFindaTemplateContract.View
-) : CreateFindaTemplateContract.Presenter {
+class CreateFindaTemplateActionPresenter(
+    private val view: CreateFindaTemplateActionContract.View
+) : CreateFindaTemplateActionContract.Presenter {
 
     override fun onCreateFindaTemplateActionPerformed(
         project: Project,
