@@ -34,7 +34,7 @@ class CreateFindaTemplateDialog(
         return panel {
 
             row("화면 이름") {
-                nameTextField = textField({""}, {}).component
+                nameTextField = textField({ "" }, {}).component
             }
 
             row("화면 종류:") {
@@ -51,39 +51,53 @@ class CreateFindaTemplateDialog(
         val templateInfo = TemplateInfo(screenTypeModel.selectedItem)
         val generatedFileInfo = screenTypeModel.selectedItem.getGeneratedFileInfo(name)
 
-        createCodeFile(generatedFileInfo, templateInfo.codeTemplateContent)
-        createViewModelFile(generatedFileInfo, templateInfo.viewModelTemplateContent)
-        createLayoutFile(generatedFileInfo, templateInfo.layoutTemplateContent)
+        val packageName = getPackageNameByPath(virtualFile.path)
+
+        createCodeFile(packageName, generatedFileInfo, templateInfo.codeTemplateContent)
+        createViewModelFile(packageName, generatedFileInfo, templateInfo.viewModelTemplateContent)
+        createLayoutFile(packageName, generatedFileInfo, templateInfo.layoutTemplateContent)
 
         super.doOKAction()
     }
 
+    private fun getPackageNameByPath(path: String): String {
+        return try {
+            path.split("java/")[1]
+                .replaceAll("/", ".")
+        } catch (e: IndexOutOfBoundsException) {
+            ""
+        }
+    }
+
     private fun createCodeFile(
+        packageName: String,
         generatedFileInfo: GeneratedFileInfo,
         templateContent: String
     ) {
         val codeFile = virtualFile.createChildData(this, "${generatedFileInfo.codeFileName}.kt")
 
         val content = templateContent.replaceAll("@NAME@", name)
-            .replaceAll("@PACKAGE@", "")
+            .replaceAll("@PACKAGE@", packageName)
             .replaceAll("@LAYOUT_NAME@", generatedFileInfo.layoutFileName)
 
         VfsUtil.saveText(codeFile, content)
     }
 
     private fun createViewModelFile(
+        packageName: String,
         generatedFileInfo: GeneratedFileInfo,
         templateContent: String
     ) {
         val viewModelFile = virtualFile.createChildData(this, "${generatedFileInfo.viewModelFileName}.kt")
 
-        val content=  templateContent.replaceAll("@NAME@", name)
-            .replaceAll("@PACKAGE@", "")
+        val content = templateContent.replaceAll("@NAME@", name)
+            .replaceAll("@PACKAGE@", packageName)
 
         VfsUtil.saveText(viewModelFile, content)
     }
 
     private fun createLayoutFile(
+        packageName: String,
         generatedFileInfo: GeneratedFileInfo,
         templateContent: String
     ) {
@@ -92,7 +106,7 @@ class CreateFindaTemplateDialog(
         val layoutFile = layoutDirectory?.createChildData(this, "${generatedFileInfo.layoutFileName}.xml")
 
         val content = templateContent
-            .replaceAll("@VM_PACKAGE@", generatedFileInfo.viewModelFileName)
+            .replaceAll("@VM_PACKAGE@", "${packageName}.${generatedFileInfo.viewModelFileName}")
 
         layoutFile?.let {
             VfsUtil.saveText(layoutFile, content)
