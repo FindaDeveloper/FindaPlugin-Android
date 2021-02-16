@@ -5,7 +5,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.util.ResourceUtil
 import kr.co.finda.androidtemplate.ext.replaceAll
-import kr.co.finda.androidtemplate.model.FileExtension
+import kr.co.finda.androidtemplate.type.FileExtension
 
 interface FileHelper {
 
