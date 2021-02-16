@@ -16,7 +16,7 @@ interface FileHelper {
         name: String,
         fileExtension: FileExtension,
         templateFileName: String,
-        replacements: Map<String, String>
+        replacements: Replacements
     )
 
     fun getPackageNameByPath(path: String): String
@@ -24,7 +24,9 @@ interface FileHelper {
     fun getLayoutDirectory(projectBasePath: String): VirtualFile?
 }
 
-class FileHelperImpl : FileHelper {
+class FileHelperImpl(
+    private val replacer: Replacer
+) : FileHelper {
 
     override fun isFileExistWithPath(path: String): Boolean {
         val file = VirtualFileManager.getInstance()
@@ -37,16 +39,13 @@ class FileHelperImpl : FileHelper {
         name: String,
         fileExtension: FileExtension,
         templateFileName: String,
-        replacements: Map<String, String>
+        replacements: Replacements
     ) {
         val kotlinFile = directory.createChildData(this, "${name}.${fileExtension.extension}")
 
         val templateContent = getTemplateContentByName(templateFileName)
 
-        val replaced = templateContent.replaceAll("@PACKAGE@", replacements["package"])
-            .replaceAll("@LAYOUT_NAME@", replacements["layoutname"])
-            .replaceAll("@NAME@", replacements["name"])
-            .replaceAll("@VM_PACKAGE@", replacements["vmpackage"])
+        val replaced = replacer.replace(templateContent, replacements)
 
         VfsUtil.saveText(kotlinFile, replaced)
     }

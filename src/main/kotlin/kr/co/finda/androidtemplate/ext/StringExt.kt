@@ -7,5 +7,13 @@ fun String.decapitalizeWithUnderBar(): String {
 }
 
 fun String.replaceAll(oldValue: String, newValue: String?): String {
-    return this.replace(oldValue.toRegex(), newValue ?: "")
+    return this.replace(oldValue, newValue ?: "")
+}
+
+fun String.replaceAllIfNotNull(oldValue: String, newValue: String?): String {
+    return if (newValue != null) {
+        this.replaceAll(oldValue, newValue)
+    } else {
+        this
+    }
 }
