@@ -14,4 +14,14 @@
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
     </actions>
+
+    <applicationListeners>
+        <listener
+                class="kr.co.finda.androidtemplate.FindaProjectManagerListener"
+                topic="com.intellij.openapi.project.ProjectManagerListener" />
+    </applicationListeners>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService" />
+    </extensions>
 </idea-plugin>
