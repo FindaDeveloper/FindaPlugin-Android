@@ -1,6 +1,5 @@
-package kr.co.finda.androidtemplate.common
+package kr.co.finda.androidtemplate.model
 
-import kr.co.finda.androidtemplate.ext.replaceAll
 import kr.co.finda.androidtemplate.ext.replaceAllIfNotNull
 
 interface Replacer {

@@ -9,8 +9,8 @@ import com.intellij.ui.components.JBTextField
 import com.intellij.ui.layout.panel
 import icons.Icons
 import kr.co.finda.androidtemplate.type.PluginError
-import kr.co.finda.androidtemplate.common.FileHelperImpl
-import kr.co.finda.androidtemplate.common.ReplacerImpl
+import kr.co.finda.androidtemplate.model.FileHelperImpl
+import kr.co.finda.androidtemplate.model.ReplacerImpl
 import kr.co.finda.androidtemplate.type.ScreenType
 import javax.swing.JComponent
 

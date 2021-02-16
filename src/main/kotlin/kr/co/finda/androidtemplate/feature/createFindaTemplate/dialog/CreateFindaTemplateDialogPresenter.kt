@@ -3,8 +3,8 @@ package kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import kr.co.finda.androidtemplate.type.PluginError
-import kr.co.finda.androidtemplate.common.FileHelper
-import kr.co.finda.androidtemplate.common.Replacements
+import kr.co.finda.androidtemplate.model.FileHelper
+import kr.co.finda.androidtemplate.model.Replacements
 import kr.co.finda.androidtemplate.ext.decapitalizeWithUnderBar
 import kr.co.finda.androidtemplate.type.FileExtension
 import kr.co.finda.androidtemplate.type.ScreenType

@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate.common
+package kr.co.finda.androidtemplate.model
 
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
