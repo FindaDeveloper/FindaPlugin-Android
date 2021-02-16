@@ -3,7 +3,7 @@
 ## 구조
 핀다 플러그인 프로젝트는 MVP(Model-View-Presenter) 구조를 사용하여  
 사용자의 상호작용과 로직을 분리합니다.  
-아래는 전통적인 MVP 구조를 다이어그램으로 표현한 것입니다.
+아래는 전통적인 MVP 구조를 다이어그램으로 표현한 것입니다.  
 ![](https://user-images.githubusercontent.com/36754680/108016880-e2d46200-7056-11eb-89e5-0cde21276060.png)
 
 ### View
