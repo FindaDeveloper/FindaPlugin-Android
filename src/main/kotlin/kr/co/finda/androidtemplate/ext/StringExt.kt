@@ -5,6 +5,6 @@ fun String.decapitalizeWithUnderBar(): String {
         .joinToString("_") { it.decapitalize() }
 }
 
-fun String.replaceAll(oldValue: String, newValue: String): String {
-    return this.replace(oldValue.toRegex(), newValue)
+fun String.replaceAll(oldValue: String, newValue: String?): String {
+    return this.replace(oldValue.toRegex(), newValue ?: "")
 }
