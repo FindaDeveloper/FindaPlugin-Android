@@ -16,6 +16,8 @@ Activity, Fragment, ViewModel 등 핀다 안드로이드 프로젝트에서 공�
 
 <!-- Plugin description end -->
 
+<br>
+
 ## Installation
 
 - IDE 내장 플러그인 시스템을 사용하여 플러그인 설치
@@ -23,6 +25,13 @@ Activity, Fragment, ViewModel 등 핀다 안드로이드 프로젝트에서 공�
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "FindaTemplate"</kbd> >
   <kbd>Install Plugin</kbd>
 
+<br>
+
+## 가이드라인
+* [개발 가이드라인](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/blob/main/DEVELOP.md)
+* [브랜치 및 컨트리뷰팅](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/blob/main/CONTRIBUTING.md)
+
+<br>
 
 ## LICENSE
 ```
