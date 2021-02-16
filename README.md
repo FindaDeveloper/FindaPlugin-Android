@@ -5,14 +5,17 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/16115-findatemplate)
 
 <!-- Plugin description -->
-핀다 Intellij 플러그인은 안드로이드 개발 과정을 줄일 수 있는 다양한 툴을 제공합니다.
+The Finda Intellij plugin offers a variety of tools to reduce the Android development process.
 
-## 기능
-1. 코드 템플릿
-Activity, Fragment, ViewModel 등 핀다 안드로이드 프로젝트에서 공통적으로 사용하는  
-보일러플레이트 코드를 자동으로 생성할 수 있는 템플릿을 제공합니다.
+## Features
+1. Code template  
+   Common features for Finda Android projects such as Activity, Fragment, and ViewModel  
+   Provides a template for automatically generating boilerplate codes.
 
-![코드 템플릿](https://user-images.githubusercontent.com/36754680/108012774-97698600-704d-11eb-9512-74393bc2003b.png)
+![CodeTemplate](https://user-images.githubusercontent.com/36754680/108012774-97698600-704d-11eb-9512-74393bc2003b.png)
+
+Many functions will be added in the future.
+Thank you!
 
 <!-- Plugin description end -->
 
