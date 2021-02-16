@@ -5,6 +5,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.util.ResourceUtil
 import kr.co.finda.androidtemplate.ext.replaceAll
+import kr.co.finda.androidtemplate.model.FileExtension
 
 interface FileHelper {
 
@@ -13,7 +14,7 @@ interface FileHelper {
     fun createFileWithTemplate(
         directory: VirtualFile,
         name: String,
-        fileExtension: String,
+        fileExtension: FileExtension,
         templateFileName: String,
         replacements: Map<String, String>
     )
@@ -34,11 +35,11 @@ class FileHelperImpl : FileHelper {
     override fun createFileWithTemplate(
         directory: VirtualFile,
         name: String,
-        fileExtension: String,
+        fileExtension: FileExtension,
         templateFileName: String,
         replacements: Map<String, String>
     ) {
-        val kotlinFile = directory.createChildData(this, "${name}.${fileExtension}")
+        val kotlinFile = directory.createChildData(this, "${name}.${fileExtension.extension}")
 
         val templateContent = getTemplateContentByName(templateFileName)
 

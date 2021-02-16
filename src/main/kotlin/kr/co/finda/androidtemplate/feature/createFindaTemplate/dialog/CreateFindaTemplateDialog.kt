@@ -8,9 +8,9 @@ import com.intellij.ui.EnumComboBoxModel
 import com.intellij.ui.components.JBTextField
 import com.intellij.ui.layout.panel
 import icons.Icons
-import kr.co.finda.androidtemplate.PluginError
+import kr.co.finda.androidtemplate.model.PluginError
 import kr.co.finda.androidtemplate.common.FileHelperImpl
-import kr.co.finda.androidtemplate.models.ScreenType
+import kr.co.finda.androidtemplate.model.ScreenType
 import javax.swing.JComponent
 
 class CreateFindaTemplateDialog(

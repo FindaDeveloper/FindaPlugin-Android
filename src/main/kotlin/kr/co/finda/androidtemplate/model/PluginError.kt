@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate
+package kr.co.finda.androidtemplate.model
 
 enum class PluginError(
     val title: String,

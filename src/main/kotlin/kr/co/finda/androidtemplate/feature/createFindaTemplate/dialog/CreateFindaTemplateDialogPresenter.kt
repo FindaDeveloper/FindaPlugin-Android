@@ -2,10 +2,11 @@ package kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
-import kr.co.finda.androidtemplate.PluginError
+import kr.co.finda.androidtemplate.model.PluginError
 import kr.co.finda.androidtemplate.common.FileHelper
 import kr.co.finda.androidtemplate.ext.decapitalizeWithUnderBar
-import kr.co.finda.androidtemplate.models.ScreenType
+import kr.co.finda.androidtemplate.model.FileExtension
+import kr.co.finda.androidtemplate.model.ScreenType
 
 class CreateFindaTemplateDialogPresenter(
     private val view: CreateFindaTemplateDialogContract.View,
@@ -59,7 +60,7 @@ class CreateFindaTemplateDialogPresenter(
         fileHelper.createFileWithTemplate(
             selectedDirectory,
             "${name}${screenType.name}",
-            "kt",
+            FileExtension.Kotlin,
             templateName,
             mapOf(
                 "name" to name,
@@ -79,7 +80,7 @@ class CreateFindaTemplateDialogPresenter(
         fileHelper.createFileWithTemplate(
             selectedDirectory,
             "${name}ViewModel",
-            "kt",
+            FileExtension.Kotlin,
             templateName,
             mapOf("name" to name, "package" to packageName)
         )
@@ -98,7 +99,7 @@ class CreateFindaTemplateDialogPresenter(
         fileHelper.createFileWithTemplate(
             layoutDirectory!!,
             getLayoutName(screenType, name),
-            "xml",
+            FileExtension.XML,
             templateName,
             mapOf(
                 "vmpackage" to "${packageName}.${name}ViewModel"
