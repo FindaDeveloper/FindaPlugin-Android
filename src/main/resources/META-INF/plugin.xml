@@ -6,8 +6,8 @@
     <depends>com.intellij.modules.platform</depends>
 
     <actions>
-        <action id="kr.co.finda.androidtemplate.actions.CreateFindaTemplateAction"
-                class="kr.co.finda.androidtemplate.actions.CreateFindaTemplateAction"
+        <action id="kr.co.finda.androidtemplate.feature.createFindaTemplate.action.CreateFindaTemplateAction"
+                class="kr.co.finda.androidtemplate.feature.createFindaTemplate.action.CreateFindaTemplateAction"
                 text="New Finda Template"
                 description="This is Finda"
                 icon="Icons.FindaLogo">
