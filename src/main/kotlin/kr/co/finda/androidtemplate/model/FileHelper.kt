@@ -52,8 +52,10 @@ class FileHelperImpl(
 
     override fun getPackageNameByPath(path: String): String {
         return try {
-            path.split("^(java/|kotlin/)$".toRegex())[1]
-                .replaceAll("/", ".")
+            val splited =
+                if (path.contains("java/")) path.split("java/")
+                else path.split("kotlin/")
+            return splited[1].replaceAll("/", ".")
         } catch (e: IndexOutOfBoundsException) {
             ""
         }

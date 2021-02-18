@@ -26,6 +26,7 @@ class CreateFindaTemplateDialogPresenter(
         }
 
         val packageName = fileHelper.getPackageNameByPath(selectedDirectory.path)
+//        val appModule = fileHelper.getModulePathByPath(selectedDirectory.path)
         createUiCodeFile(name, packageName, screenType, selectedDirectory)
         createViewModelFile(name, packageName, selectedDirectory)
         createLayoutFile(project, name, packageName, screenType)
