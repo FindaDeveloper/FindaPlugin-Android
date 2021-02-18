@@ -25,6 +25,9 @@ interface CreateFindaTemplateActionContract {
             selectedDirectory: VirtualFile?
         )
 
-        fun onActionUpdate(event: AnActionEvent)
+        fun onActionUpdate(
+            event: AnActionEvent,
+            selectedDirectory: VirtualFile?
+        )
     }
 }

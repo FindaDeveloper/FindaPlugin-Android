@@ -9,11 +9,12 @@ import com.intellij.openapi.vfs.VirtualFile
 import icons.Icons
 import kr.co.finda.androidtemplate.type.PluginError
 import kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog.CreateFindaTemplateDialog
+import kr.co.finda.androidtemplate.model.ActionRouterImpl
 
 class CreateFindaTemplateAction : AnAction(), CreateFindaTemplateActionContract.View {
 
     private val presenter: CreateFindaTemplateActionPresenter by lazy {
-        CreateFindaTemplateActionPresenter(this)
+        CreateFindaTemplateActionPresenter(this, ActionRouterImpl())
     }
 
     override fun actionPerformed(e: AnActionEvent) {
@@ -24,7 +25,8 @@ class CreateFindaTemplateAction : AnAction(), CreateFindaTemplateActionContract.
     }
 
     override fun update(event: AnActionEvent) {
-        presenter.onActionUpdate(event)
+        val selectedDirectory = event.getData(CommonDataKeys.VIRTUAL_FILE)
+        presenter.onActionUpdate(event, selectedDirectory)
     }
 
     override fun showErrorDialog(

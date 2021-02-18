@@ -3,10 +3,12 @@ package kr.co.finda.androidtemplate.feature.createFindaTemplate.action
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
+import kr.co.finda.androidtemplate.model.ActionRouter
 import kr.co.finda.androidtemplate.type.PluginError
 
 class CreateFindaTemplateActionPresenter(
-    private val view: CreateFindaTemplateActionContract.View
+    private val view: CreateFindaTemplateActionContract.View,
+    private val actionRouter: ActionRouter
 ) : CreateFindaTemplateActionContract.Presenter {
 
     override fun onCreateFindaTemplateActionPerformed(
@@ -26,8 +28,10 @@ class CreateFindaTemplateActionPresenter(
         view.showCreateFindaTemplateDialog(project, selectedDirectory)
     }
 
-    override fun onActionUpdate(event: AnActionEvent) {
-        event.presentation.isEnabledAndVisible = event.project != null
+    override fun onActionUpdate(event: AnActionEvent, selectedDirectory: VirtualFile?) {
+        event.presentation.isEnabledAndVisible =
+            if (selectedDirectory != null) actionRouter.isCreateFindaTemplateEnable(selectedDirectory.path)
+            else false
     }
 
     private fun isValidSelectedDirectoryPath(path: String): Boolean {
