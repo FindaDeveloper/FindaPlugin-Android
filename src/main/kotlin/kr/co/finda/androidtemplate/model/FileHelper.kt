@@ -6,6 +6,10 @@ import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.util.ResourceUtil
 import kr.co.finda.androidtemplate.ext.replaceAll
 import kr.co.finda.androidtemplate.type.FileExtension
+import java.io.File
+import java.net.URI
+import java.nio.file.Files
+import java.nio.file.Paths
 
 interface FileHelper {
 
@@ -21,7 +25,7 @@ interface FileHelper {
 
     fun getPackageNameByPath(path: String): String
 
-    fun getLayoutDirectory(projectBasePath: String): VirtualFile?
+    fun getLayoutDirectory(selectedDirectoryPath: String): VirtualFile?
 }
 
 class FileHelperImpl(
@@ -61,9 +65,11 @@ class FileHelperImpl(
         }
     }
 
-    override fun getLayoutDirectory(projectBasePath: String): VirtualFile? {
+    override fun getLayoutDirectory(selectedDirectoryPath: String): VirtualFile? {
+        val mainPath = selectedDirectoryPath.split("src/main")[0]
+        val layoutPath = "${mainPath}/src/main/res/layout"
         return VirtualFileManager.getInstance()
-            .findFileByUrl("file://${projectBasePath}/src/main/res/layout")
+            .findFileByUrl("file://${layoutPath}")
     }
 
     private fun getTemplateContentByName(templateName: String): String {

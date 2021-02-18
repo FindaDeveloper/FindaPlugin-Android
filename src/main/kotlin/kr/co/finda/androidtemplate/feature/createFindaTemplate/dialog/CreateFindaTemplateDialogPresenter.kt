@@ -26,10 +26,9 @@ class CreateFindaTemplateDialogPresenter(
         }
 
         val packageName = fileHelper.getPackageNameByPath(selectedDirectory.path)
-//        val appModule = fileHelper.getModulePathByPath(selectedDirectory.path)
         createUiCodeFile(name, packageName, screenType, selectedDirectory)
         createViewModelFile(name, packageName, selectedDirectory)
-        createLayoutFile(project, name, packageName, screenType)
+        createLayoutFile(project, name, packageName, screenType, selectedDirectory)
     }
 
     private fun getConflictedFileName(
@@ -95,15 +94,21 @@ class CreateFindaTemplateDialogPresenter(
         project: Project,
         name: String,
         packageName: String,
-        screenType: ScreenType
+        screenType: ScreenType,
+        selectedDirectory: VirtualFile
     ) {
-        val layoutDirectory = fileHelper.getLayoutDirectory(project.basePath!!)
+        val layoutName = getLayoutName(screenType, name)
+        val layoutDirectory = fileHelper.getLayoutDirectory(selectedDirectory.path)
+        if (layoutDirectory == null) {
+            view.showErrorDialog(project, PluginError.FT104)
+            return
+        }
 
         val templateName = "LayoutTemplate"
 
         fileHelper.createFileWithTemplate(
-            layoutDirectory!!,
-            getLayoutName(screenType, name),
+            layoutDirectory,
+            layoutName,
             FileExtension.XML,
             templateName,
             Replacements(
