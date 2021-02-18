@@ -52,8 +52,7 @@ class FileHelperImpl(
 
     override fun getPackageNameByPath(path: String): String {
         return try {
-            // TODO 정규식으로 변경 필요 'kotlin/' 대응
-            path.split("java/")[1]
+            path.split("^(java/|kotlin/)$".toRegex())[1]
                 .replaceAll("/", ".")
         } catch (e: IndexOutOfBoundsException) {
             ""
