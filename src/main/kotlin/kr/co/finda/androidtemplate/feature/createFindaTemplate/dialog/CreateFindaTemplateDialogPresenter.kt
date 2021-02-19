@@ -2,12 +2,12 @@ package kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
-import kr.co.finda.androidtemplate.model.PluginError
-import kr.co.finda.androidtemplate.common.FileHelper
-import kr.co.finda.androidtemplate.common.Replacements
+import kr.co.finda.androidtemplate.type.PluginError
+import kr.co.finda.androidtemplate.model.FileHelper
+import kr.co.finda.androidtemplate.model.Replacements
 import kr.co.finda.androidtemplate.ext.decapitalizeWithUnderBar
-import kr.co.finda.androidtemplate.model.FileExtension
-import kr.co.finda.androidtemplate.model.ScreenType
+import kr.co.finda.androidtemplate.type.FileExtension
+import kr.co.finda.androidtemplate.type.ScreenType
 
 class CreateFindaTemplateDialogPresenter(
     private val view: CreateFindaTemplateDialogContract.View,
@@ -28,7 +28,7 @@ class CreateFindaTemplateDialogPresenter(
         val packageName = fileHelper.getPackageNameByPath(selectedDirectory.path)
         createUiCodeFile(name, packageName, screenType, selectedDirectory)
         createViewModelFile(name, packageName, selectedDirectory)
-        createLayoutFile(project, name, packageName, screenType)
+        createLayoutFile(project, name, packageName, screenType, selectedDirectory)
     }
 
     private fun getConflictedFileName(
@@ -94,15 +94,21 @@ class CreateFindaTemplateDialogPresenter(
         project: Project,
         name: String,
         packageName: String,
-        screenType: ScreenType
+        screenType: ScreenType,
+        selectedDirectory: VirtualFile
     ) {
-        val layoutDirectory = fileHelper.getLayoutDirectory(project.basePath!!)
+        val layoutName = getLayoutName(screenType, name)
+        val layoutDirectory = fileHelper.getLayoutDirectory(selectedDirectory.path)
+        if (layoutDirectory == null) {
+            view.showErrorDialog(project, PluginError.FT104)
+            return
+        }
 
         val templateName = "LayoutTemplate"
 
         fileHelper.createFileWithTemplate(
-            layoutDirectory!!,
-            getLayoutName(screenType, name),
+            layoutDirectory,
+            layoutName,
             FileExtension.XML,
             templateName,
             Replacements(

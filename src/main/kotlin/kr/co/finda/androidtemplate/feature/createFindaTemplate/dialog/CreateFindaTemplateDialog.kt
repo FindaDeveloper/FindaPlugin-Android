@@ -8,10 +8,10 @@ import com.intellij.ui.EnumComboBoxModel
 import com.intellij.ui.components.JBTextField
 import com.intellij.ui.layout.panel
 import icons.Icons
-import kr.co.finda.androidtemplate.model.PluginError
-import kr.co.finda.androidtemplate.common.FileHelperImpl
-import kr.co.finda.androidtemplate.common.ReplacerImpl
-import kr.co.finda.androidtemplate.model.ScreenType
+import kr.co.finda.androidtemplate.type.PluginError
+import kr.co.finda.androidtemplate.model.FileHelperImpl
+import kr.co.finda.androidtemplate.model.ReplacerImpl
+import kr.co.finda.androidtemplate.type.ScreenType
 import javax.swing.JComponent
 
 class CreateFindaTemplateDialog(
@@ -37,7 +37,7 @@ class CreateFindaTemplateDialog(
     override fun createCenterPanel(): JComponent {
         return panel {
 
-            row("화면 이름") {
+            row("화면 이름:") {
                 nameTextField = textField({ "" }, {}).component
             }
 

@@ -1,40 +1,65 @@
 # FindaTemplatePlugin-Android
 
 ![Build](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Verify the [pluginGroup](/gradle.properties), [plugin ID](/src/main/resources/META-INF/plugin.xml) and [sources package](/src/main/kotlin).
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the Plugin ID in the above README badges.
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
+[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/16115-findatemplate)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/16115-findatemplate)
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+The Finda Intellij plugin offers a variety of tools to reduce the Android development process.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+## Features
+1. Code template  
+   Common features for Finda Android projects such as Activity, Fragment, and ViewModel  
+   Provides a template for automatically generating boilerplate codes.
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+![CodeTemplate](https://user-images.githubusercontent.com/36754680/108012774-97698600-704d-11eb-9512-74393bc2003b.png)
+
+Many functions will be added in the future.
+Thank you!
+
 <!-- Plugin description end -->
+
+<br>
 
 ## Installation
 
-- Using IDE built-in plugin system:
+- IDE 내장 플러그인 시스템을 사용하여 플러그인 설치
   
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "FindaTemplatePlugin-Android"</kbd> >
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "FindaTemplate"</kbd> >
   <kbd>Install Plugin</kbd>
-  
-- Manually:
 
-  Download the [latest release](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+<br>
 
+## 가이드라인
+* [개발 가이드라인](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/blob/main/DEVELOP.md)
+* [브랜치 및 컨트리뷰팅](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/blob/main/CONTRIBUTING.md)
+
+<br>
+
+## LICENSE
+```
+MIT License
+
+Copyright (c) 2021 Finda Developer
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
 ---
-Plugin based on the [IntelliJ Platform Plugin Template][template].
-
-[template]: https://github.com/JetBrains/intellij-platform-plugin-template
+해당 플러그인은 [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template) 기반으로 작성되었습니다.

@@ -1,18 +1,12 @@
-package kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog
+package kr.co.finda.androidtemplate.feature.createViewModelTest.dialog
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import kr.co.finda.androidtemplate.type.PluginError
-import kr.co.finda.androidtemplate.type.ScreenType
 
-interface CreateFindaTemplateDialogContract {
+interface CreateViewModelTestDialogContract {
 
     interface View {
-        fun showErrorDialog(
-            project: Project,
-            pluginError: PluginError
-        )
-
         fun showConflictNameDialog(
             project: Project,
             pluginError: PluginError,
@@ -21,10 +15,9 @@ interface CreateFindaTemplateDialogContract {
     }
 
     interface Presenter {
-        fun onCreateFindaTemplate(
+        fun onCreateViewModelTest(
             project: Project,
             name: String,
-            screenType: ScreenType,
             selectedDirectory: VirtualFile
         )
     }

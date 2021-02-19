@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>kr.co.finda.androidtemplate</id>
-    <name>FindaTemplatePlugin-Android</name>
-    <vendor>kimdohun0104</vendor>
+    <name>FindaTemplate</name>
+    <vendor>Dohun Kim</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
@@ -13,15 +13,23 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
+        <action id="kr.co.finda.androidtemplate.feature.createViewModelTest.action.CreateViewModelTestAction"
+                class="kr.co.finda.androidtemplate.feature.createViewModelTest.action.CreateViewModelTestAction"
+                text="New ViewModel Test"
+                icon="Icons.FindaLogo">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
     </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultLiveTemplates file="/liveTemplates/FindaTest.xml"/>
+        <liveTemplateContext implementation="kr.co.finda.androidtemplate.feature.FindaTestTemplateContextType"/>
+        <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService" />
+    </extensions>
 
     <applicationListeners>
         <listener
                 class="kr.co.finda.androidtemplate.FindaProjectManagerListener"
                 topic="com.intellij.openapi.project.ProjectManagerListener" />
     </applicationListeners>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService" />
-    </extensions>
 </idea-plugin>
