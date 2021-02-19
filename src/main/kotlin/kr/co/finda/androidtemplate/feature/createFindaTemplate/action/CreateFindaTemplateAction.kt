@@ -11,9 +11,10 @@ import kr.co.finda.androidtemplate.type.PluginError
 import kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog.CreateFindaTemplateDialog
 import kr.co.finda.androidtemplate.model.ActionRouterImpl
 
-class CreateFindaTemplateAction : AnAction(), CreateFindaTemplateActionContract.View {
+class CreateFindaTemplateAction :
+    AnAction(), CreateFindaTemplateActionContract.View {
 
-    private val presenter: CreateFindaTemplateActionPresenter by lazy {
+    private val presenter: CreateFindaTemplateActionContract.Presenter by lazy {
         CreateFindaTemplateActionPresenter(this, ActionRouterImpl())
     }
 

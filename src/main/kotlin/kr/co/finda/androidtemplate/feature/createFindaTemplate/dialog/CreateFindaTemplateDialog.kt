@@ -37,7 +37,7 @@ class CreateFindaTemplateDialog(
     override fun createCenterPanel(): JComponent {
         return panel {
 
-            row("화면 이름") {
+            row("화면 이름:") {
                 nameTextField = textField({ "" }, {}).component
             }
 

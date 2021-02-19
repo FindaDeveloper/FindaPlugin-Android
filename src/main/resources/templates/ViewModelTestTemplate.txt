@@ -1,0 +1,14 @@
+package $PACKAGE$
+
+import kr.co.finda.BasicTest
+
+class $NAME$ViewModelTest : BasicTest() {
+
+    private lateinit var viewModel: $NAME$ViewModel
+
+    fun buildViewModel(): $NAME$ViewModel {
+        return $NAME$ViewModel()
+    }
+
+
+}

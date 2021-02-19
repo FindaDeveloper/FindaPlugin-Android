@@ -35,6 +35,6 @@ class CreateFindaTemplateActionPresenter(
     }
 
     private fun isValidSelectedDirectoryPath(path: String): Boolean {
-        return path.contains("^.*src/main/(java|kotlin).*$".toRegex())
+        return actionRouter.isCreateFindaTemplateEnable(path)
     }
 }

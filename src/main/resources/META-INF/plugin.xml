@@ -13,10 +13,16 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
+        <action id="kr.co.finda.androidtemplate.feature.createViewModelTest.action.CreateViewModelTestAction"
+                class="kr.co.finda.androidtemplate.feature.createViewModelTest.action.CreateViewModelTestAction"
+                text="New ViewModel Test Template"
+                icon="Icons.FindaLogo">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
-        <defaultLiveTemplates file="/liveTemplates/FindaTest.xml" />
-        <liveTemplateContext implementation="kr.co.finda.androidtemplate.feature.FindaTestTemplateContextType" />
+        <defaultLiveTemplates file="/liveTemplates/FindaTest.xml"/>
+        <liveTemplateContext implementation="kr.co.finda.androidtemplate.feature.FindaTestTemplateContextType"/>
     </extensions>
 </idea-plugin>
