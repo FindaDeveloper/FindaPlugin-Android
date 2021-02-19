@@ -14,4 +14,9 @@
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
     </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultLiveTemplates file="/liveTemplates/FindaTest.xml" />
+        <liveTemplateContext implementation="kr.co.finda.androidtemplate.feature.FindaTestTemplateContextType" />
+    </extensions>
 </idea-plugin>
