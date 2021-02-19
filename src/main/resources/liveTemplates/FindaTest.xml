@@ -33,4 +33,10 @@
       <option name="KOTLIN_CLASS" value="true" />
     </context>
   </template>
+  <template name="tgiven" value="// GIVEN&#10;$CONTENT$   &#10;&#10;// WHEN&#10;&#10;// THEN" description="Create Given When Then format" toReformat="false" toShortenFQNames="true">
+    <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
+  </template>
 </templateSet>
