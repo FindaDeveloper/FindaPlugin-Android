@@ -2,8 +2,8 @@ package kr.co.finda.androidtemplate.feature.createViewModelTest.dialog
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
-import kr.co.finda.androidtemplate.model.FileHelper
-import kr.co.finda.androidtemplate.model.Replacements
+import kr.co.finda.androidtemplate.util.FileHelper
+import kr.co.finda.androidtemplate.util.Replacements
 import kr.co.finda.androidtemplate.type.FileExtension
 import kr.co.finda.androidtemplate.type.PluginError
 

@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate.feature.waistUp.action
+package kr.co.finda.androidtemplate.feature.waistUp
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent

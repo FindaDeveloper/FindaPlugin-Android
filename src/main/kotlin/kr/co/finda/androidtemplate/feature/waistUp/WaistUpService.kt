@@ -7,7 +7,6 @@ import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import kotlinx.coroutines.*
-import kr.co.finda.androidtemplate.feature.waistUp.action.SetWaistUpStateAction
 import kr.co.finda.androidtemplate.type.WaistUpState
 
 @State(

@@ -5,10 +5,10 @@ import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.components.JBTextField
-import com.intellij.ui.layout.panel
+import com.intellij.util.ui.FormBuilder
 import icons.Icons
-import kr.co.finda.androidtemplate.model.FileHelperImpl
-import kr.co.finda.androidtemplate.model.ReplacerImpl
+import kr.co.finda.androidtemplate.util.FileHelperImpl
+import kr.co.finda.androidtemplate.util.ReplacerImpl
 import kr.co.finda.androidtemplate.type.PluginError
 import javax.swing.JComponent
 
@@ -21,7 +21,10 @@ class CreateViewModelTestDialog(
         CreateViewModelTestDialogPresenter(this, FileHelperImpl(ReplacerImpl()))
     }
 
-    private lateinit var nameTextField: JBTextField
+    private val nameTextField = JBTextField()
+    private val panel = FormBuilder.createFormBuilder()
+        .addLabeledComponent("ViewModel 이름:", nameTextField)
+        .panel
 
     init {
         init()
@@ -29,12 +32,6 @@ class CreateViewModelTestDialog(
     }
 
     override fun createCenterPanel(): JComponent {
-        val panel =  panel {
-            row("ViewModel 이름:") {
-                nameTextField = textField({ "" }, {}).component
-            }
-        }
-        panel.preferredFocusedComponent = nameTextField
         return panel
     }
 

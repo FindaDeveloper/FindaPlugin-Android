@@ -3,7 +3,7 @@ package kr.co.finda.androidtemplate.feature.createFindaTemplate.action
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
-import kr.co.finda.androidtemplate.model.ActionRouter
+import kr.co.finda.androidtemplate.util.ActionRouter
 import kr.co.finda.androidtemplate.type.PluginError
 
 class CreateFindaTemplateActionPresenter(

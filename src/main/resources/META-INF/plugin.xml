@@ -19,14 +19,14 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.waistUp.action.SetWaistUpStateAction"
-                class="kr.co.finda.androidtemplate.feature.waistUp.action.SetWaistUpStateAction"
+        <action id="kr.co.finda.androidtemplate.feature.waistUp.SetWaistUpStateAction"
+                class="kr.co.finda.androidtemplate.feature.waistUp.SetWaistUpStateAction"
                 text="Set Waist Up Timer"/>
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
         <defaultLiveTemplates file="/liveTemplates/FindaTest.xml"/>
-        <liveTemplateContext implementation="kr.co.finda.androidtemplate.feature.FindaTestTemplateContextType"/>
+        <liveTemplateContext implementation="kr.co.finda.androidtemplate.feature.liveTemplate.FindaTestTemplateContextType"/>
 
         <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService"/>
 

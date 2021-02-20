@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate.model
+package kr.co.finda.androidtemplate.util
 
 interface ActionRouter {
 

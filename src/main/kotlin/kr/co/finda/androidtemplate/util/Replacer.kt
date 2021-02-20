@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate.model
+package kr.co.finda.androidtemplate.util
 
 import kr.co.finda.androidtemplate.ext.replaceAllIfNotNull
 

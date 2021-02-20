@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate.model
+package kr.co.finda.androidtemplate.util
 
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
@@ -6,10 +6,6 @@ import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.util.ResourceUtil
 import kr.co.finda.androidtemplate.ext.replaceAll
 import kr.co.finda.androidtemplate.type.FileExtension
-import java.io.File
-import java.net.URI
-import java.nio.file.Files
-import java.nio.file.Paths
 
 interface FileHelper {
 
