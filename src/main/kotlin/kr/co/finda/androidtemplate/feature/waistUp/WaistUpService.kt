@@ -46,8 +46,8 @@ object WaistUpService : PersistentStateComponent<WaistUpState> {
         job = GlobalScope.launch(Dispatchers.IO) {
             while (true) {
                 val notification = balloonGroup.createNotification(
-                    title = "허리펴!",
-                    content = "Finda 플러그인은 당신의 건강을 책임집니다",
+                    title = "허리를 FINDA!",
+                    content = "Finda 플러그인은 당신의 건강을 책임집니다!",
                     type = NotificationType.WARNING
                 )
                 notification.addAction(SetWaistUpStateAction())
