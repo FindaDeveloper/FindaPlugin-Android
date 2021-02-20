@@ -1,4 +1,4 @@
-<idea-plugin>
+<idea-plugin require-restart="true">
     <id>kr.co.finda.androidtemplate</id>
     <name>FindaTemplate</name>
     <vendor>Dohun Kim</vendor>
