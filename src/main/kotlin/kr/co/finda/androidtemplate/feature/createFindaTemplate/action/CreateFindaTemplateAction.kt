@@ -9,7 +9,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import icons.Icons
 import kr.co.finda.androidtemplate.type.PluginError
 import kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog.CreateFindaTemplateDialog
-import kr.co.finda.androidtemplate.model.ActionRouterImpl
+import kr.co.finda.androidtemplate.util.ActionRouterImpl
 
 class CreateFindaTemplateAction :
     AnAction(), CreateFindaTemplateActionContract.View {

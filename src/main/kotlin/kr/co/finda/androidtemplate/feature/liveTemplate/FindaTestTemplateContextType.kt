@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate.feature
+package kr.co.finda.androidtemplate.feature.liveTemplate
 
 import com.intellij.codeInsight.template.TemplateContextType
 import com.intellij.psi.PsiFile

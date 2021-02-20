@@ -1,16 +1,17 @@
 package kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog
 
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.EnumComboBoxModel
 import com.intellij.ui.components.JBTextField
-import com.intellij.ui.layout.panel
+import com.intellij.util.ui.FormBuilder
 import icons.Icons
 import kr.co.finda.androidtemplate.type.PluginError
-import kr.co.finda.androidtemplate.model.FileHelperImpl
-import kr.co.finda.androidtemplate.model.ReplacerImpl
+import kr.co.finda.androidtemplate.util.FileHelperImpl
+import kr.co.finda.androidtemplate.util.ReplacerImpl
 import kr.co.finda.androidtemplate.type.ScreenType
 import javax.swing.JComponent
 
@@ -27,7 +28,13 @@ class CreateFindaTemplateDialog(
     }
 
     private val screenTypeModel = EnumComboBoxModel(ScreenType::class.java)
-    private lateinit var nameTextField: JBTextField
+
+    private val nameTextField = JBTextField()
+    private val screenTypeComboBox = ComboBox(screenTypeModel)
+    private val panel = FormBuilder.createFormBuilder()
+        .addLabeledComponent("화면 이름:", nameTextField)
+        .addLabeledComponent("화면 종류:", screenTypeComboBox)
+        .panel
 
     init {
         init()
@@ -35,20 +42,7 @@ class CreateFindaTemplateDialog(
     }
 
     override fun createCenterPanel(): JComponent {
-        return panel {
-
-            row("화면 이름:") {
-                nameTextField = textField({ "" }, {}).component
-            }
-
-            row("화면 종류:") {
-                comboBox(
-                    screenTypeModel,
-                    { screenTypeModel.selectedItem },
-                    { screenTypeModel.setSelectedItem(it) }
-                )
-            }
-        }
+        return panel
     }
 
     override fun doOKAction() {

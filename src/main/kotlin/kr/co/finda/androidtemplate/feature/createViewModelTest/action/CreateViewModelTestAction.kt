@@ -8,7 +8,7 @@ import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.VirtualFile
 import icons.Icons
 import kr.co.finda.androidtemplate.feature.createViewModelTest.dialog.CreateViewModelTestDialog
-import kr.co.finda.androidtemplate.model.ActionRouterImpl
+import kr.co.finda.androidtemplate.util.ActionRouterImpl
 import kr.co.finda.androidtemplate.type.PluginError
 
 class CreateViewModelTestAction :
