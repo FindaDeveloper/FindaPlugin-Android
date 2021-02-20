@@ -35,8 +35,7 @@ class CreateFindaTemplateDialog(
     }
 
     override fun createCenterPanel(): JComponent {
-        return panel {
-
+        val panel = panel {
             row("화면 이름:") {
                 nameTextField = textField({ "" }, {}).component
             }
@@ -49,6 +48,8 @@ class CreateFindaTemplateDialog(
                 )
             }
         }
+        panel.preferredFocusedComponent = nameTextField
+        return panel
     }
 
     override fun doOKAction() {

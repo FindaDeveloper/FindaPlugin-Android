@@ -29,11 +29,13 @@ class CreateViewModelTestDialog(
     }
 
     override fun createCenterPanel(): JComponent {
-        return panel {
+        val panel =  panel {
             row("ViewModel 이름:") {
                 nameTextField = textField({ "" }, {}).component
             }
         }
+        panel.preferredFocusedComponent = nameTextField
+        return panel
     }
 
     override fun doOKAction() {
