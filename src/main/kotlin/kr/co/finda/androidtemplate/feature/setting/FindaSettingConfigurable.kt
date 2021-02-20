@@ -14,7 +14,6 @@ class FindaSettingConfigurable : Configurable {
     }
 
     override fun isModified(): Boolean {
-        println("isModified")
         val state = WaistUpService.state
         return state.isEnabled != findaSettingComponent.waistUpCheckBox.isSelected
                 || state.hideDelay != findaSettingComponent.hideDelayTextField.text.toLong()
@@ -26,6 +25,8 @@ class FindaSettingConfigurable : Configurable {
         state.isEnabled = findaSettingComponent.waistUpCheckBox.isSelected
         state.hideDelay = findaSettingComponent.hideDelayTextField.text.toLong()
         state.waitDelay = findaSettingComponent.waitDelayTextField.text.toLong()
+
+        WaistUpService.setNotificationEnable(state.isEnabled)
     }
 
     override fun getPreferredFocusedComponent(): JComponent {

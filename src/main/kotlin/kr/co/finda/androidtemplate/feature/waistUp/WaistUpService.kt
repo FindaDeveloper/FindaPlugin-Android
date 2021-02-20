@@ -6,9 +6,7 @@ import com.intellij.notification.NotificationType
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kr.co.finda.androidtemplate.feature.waistUp.action.SetWaistUpStateAction
 import kr.co.finda.androidtemplate.type.WaistUpState
 
@@ -26,17 +24,28 @@ object WaistUpService : PersistentStateComponent<WaistUpState> {
 
     private var state = WaistUpState()
 
+    var job: Job? = null
+
     init {
-        startNotification()
+        setNotificationEnable(state.isEnabled)
+    }
+
+    override fun getState(): WaistUpState {
+        return state
+    }
+
+    override fun loadState(state: WaistUpState) {
+        this.state = state
+    }
+
+    fun setNotificationEnable(isEnable: Boolean) {
+        job?.cancel()
+        if (isEnable) startNotification()
     }
 
     private fun startNotification() {
-        GlobalScope.launch {
+        job = GlobalScope.launch(Dispatchers.IO) {
             while (true) {
-                if (!state.isEnabled) {
-                    break
-                }
-
                 val notification = balloonGroup.createNotification(
                     title = "허리펴!",
                     content = "Finda 플러그인은 당신의 건강을 책임집니다",
@@ -51,13 +60,5 @@ object WaistUpService : PersistentStateComponent<WaistUpState> {
                 delay(state.waitDelay)
             }
         }
-    }
-
-    override fun getState(): WaistUpState {
-        return state
-    }
-
-    override fun loadState(state: WaistUpState) {
-        this.state = state
     }
 }
