@@ -4,6 +4,7 @@
     <vendor>Dohun Kim</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.kotlin</depends>
 
     <actions>
         <action id="kr.co.finda.androidtemplate.feature.createFindaTemplate.action.CreateFindaTemplateAction"
@@ -26,7 +27,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <defaultLiveTemplates file="/liveTemplates/FindaTest.xml"/>
-        <liveTemplateContext implementation="kr.co.finda.androidtemplate.feature.liveTemplate.FindaTestTemplateContextType"/>
+        <liveTemplateContext
+                implementation="kr.co.finda.androidtemplate.feature.liveTemplate.FindaTestTemplateContextType"/>
 
         <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService"/>
 
@@ -34,6 +36,9 @@
                                  instance="kr.co.finda.androidtemplate.feature.setting.FindaSettingConfigurable"
                                  id="kr.co.finda.androidtemplate.feature.setting.FindaSettingConfigurable"
                                  displayName="Finda Settings"/>
+
+        <inspectionToolProvider
+                implementation="kr.co.finda.androidtemplate.feature.inspection.FindaInspectionProvider"/>
     </extensions>
 
     <applicationListeners>
