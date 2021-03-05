@@ -1,8 +1,8 @@
 # FindaTemplatePlugin-Android
 
-![Build](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/16115-findatemplate)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/16115-findatemplate)
+![Build](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/workflows/Build/badge.svg) 
+![Version](https://img.shields.io/jetbrains/plugin/v/16115-findatemplate) 
+![Downloads](https://img.shields.io/jetbrains/plugin/d/16115-findatemplate)
 
 <!-- Plugin description -->
 The Finda Intellij plugin offers a variety of tools to reduce the Android development process.
