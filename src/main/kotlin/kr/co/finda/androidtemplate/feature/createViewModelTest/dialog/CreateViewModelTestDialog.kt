@@ -7,6 +7,7 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
 import icons.Icons
+import kr.co.finda.androidtemplate.ext.showMessageDialog
 import kr.co.finda.androidtemplate.util.FileHelperImpl
 import kr.co.finda.androidtemplate.util.ReplacerImpl
 import kr.co.finda.androidtemplate.type.PluginError
@@ -45,11 +46,9 @@ class CreateViewModelTestDialog(
     }
 
     override fun showConflictNameDialog(project: Project, pluginError: PluginError, conflictedFileName: String) {
-        Messages.showMessageDialog(
-            project,
-            "${pluginError.message}\n${conflictedFileName}",
-            pluginError.title,
-            Icons.FindaLogo
+        project.showMessageDialog(
+            title = pluginError.title,
+            message = "${pluginError.message}\n${conflictedFileName}"
         )
     }
 }

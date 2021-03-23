@@ -9,6 +9,7 @@ import com.intellij.ui.EnumComboBoxModel
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
 import icons.Icons
+import kr.co.finda.androidtemplate.ext.showErrorDialog
 import kr.co.finda.androidtemplate.type.PluginError
 import kr.co.finda.androidtemplate.util.FileHelperImpl
 import kr.co.finda.androidtemplate.util.ReplacerImpl
@@ -59,12 +60,7 @@ class CreateFindaTemplateDialog(
         project: Project,
         pluginError: PluginError
     ) {
-        Messages.showMessageDialog(
-            project,
-            pluginError.message,
-            pluginError.title,
-            Icons.FindaLogo
-        )
+        project.showErrorDialog(pluginError)
     }
 
     override fun showConflictNameDialog(
