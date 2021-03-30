@@ -1,14 +1,16 @@
 package $PACKAGE$
 
 import kr.co.finda.BasicTest
+import org.junit.jupiter.api.BeforeEach
 
 class $NAME$ViewModelTest : BasicTest() {
 
     private lateinit var viewModel: $NAME$ViewModel
 
-    fun buildViewModel(): $NAME$ViewModel {
-        return $NAME$ViewModel()
-    }
+    @BeforeEach
+    fun setUpViewModel() {
 
+        viewModel = $NAME$ViewModel()
+    }
 
 }
