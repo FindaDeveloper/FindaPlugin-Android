@@ -4,7 +4,7 @@
     <vendor>Dohun Kim</vendor>
 
     <depends>com.intellij.modules.platform</depends>
-    <depends>org.jetbrains.kotlin</depends>
+    <depends>org.jetbrains.android</depends>
 
     <actions>
         <action id="kr.co.finda.androidtemplate.feature.createFindaTemplate.action.CreateFindaTemplateAction"
