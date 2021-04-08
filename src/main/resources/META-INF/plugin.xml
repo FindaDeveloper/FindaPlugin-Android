@@ -4,6 +4,7 @@
     <vendor>Dohun Kim</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
 
     <actions>
         <action id="kr.co.finda.androidtemplate.feature.createFindaTemplate.action.CreateFindaTemplateAction"
@@ -22,11 +23,18 @@
         <action id="kr.co.finda.androidtemplate.feature.waistUp.SetWaistUpStateAction"
                 class="kr.co.finda.androidtemplate.feature.waistUp.SetWaistUpStateAction"
                 text="Set Waist Up Timer"/>
+        <action id="kr.co.finda.androidtemplate.feature.showLayoutBound.action.ShowLayoutBoundsAction"
+                class="kr.co.finda.androidtemplate.feature.showLayoutBound.action.ShowLayoutBoundsAction"
+                text="Show/Hide Layout Bound"
+                icon="Icons.FindaLogo">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
         <defaultLiveTemplates file="/liveTemplates/FindaTest.xml"/>
-        <liveTemplateContext implementation="kr.co.finda.androidtemplate.feature.liveTemplate.FindaTestTemplateContextType"/>
+        <liveTemplateContext
+                implementation="kr.co.finda.androidtemplate.feature.liveTemplate.FindaTestTemplateContextType"/>
 
         <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService"/>
 
@@ -34,6 +42,9 @@
                                  instance="kr.co.finda.androidtemplate.feature.setting.FindaSettingConfigurable"
                                  id="kr.co.finda.androidtemplate.feature.setting.FindaSettingConfigurable"
                                  displayName="Finda Settings"/>
+
+        <inspectionToolProvider
+                implementation="kr.co.finda.androidtemplate.feature.inspection.FindaInspectionProvider"/>
     </extensions>
 
     <applicationListeners>

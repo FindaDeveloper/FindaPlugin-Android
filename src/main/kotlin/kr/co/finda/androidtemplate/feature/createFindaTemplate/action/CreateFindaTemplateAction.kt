@@ -7,6 +7,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.VirtualFile
 import icons.Icons
+import kr.co.finda.androidtemplate.ext.showErrorDialog
 import kr.co.finda.androidtemplate.type.PluginError
 import kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog.CreateFindaTemplateDialog
 import kr.co.finda.androidtemplate.util.ActionRouterImpl
@@ -34,12 +35,7 @@ class CreateFindaTemplateAction :
         project: Project,
         error: PluginError
     ) {
-        Messages.showMessageDialog(
-            project,
-            error.message,
-            error.title,
-            Icons.FindaLogo
-        )
+        project.showErrorDialog(error)
     }
 
     override fun showCreateFindaTemplateDialog(

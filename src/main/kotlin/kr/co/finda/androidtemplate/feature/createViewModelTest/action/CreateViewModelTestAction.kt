@@ -4,12 +4,11 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.VirtualFile
-import icons.Icons
+import kr.co.finda.androidtemplate.ext.showErrorDialog
 import kr.co.finda.androidtemplate.feature.createViewModelTest.dialog.CreateViewModelTestDialog
-import kr.co.finda.androidtemplate.util.ActionRouterImpl
 import kr.co.finda.androidtemplate.type.PluginError
+import kr.co.finda.androidtemplate.util.ActionRouterImpl
 
 class CreateViewModelTestAction :
     AnAction(), CreateViewModelTestActionContract.View {
@@ -31,12 +30,7 @@ class CreateViewModelTestAction :
     }
 
     override fun showErrorDialog(project: Project, pluginError: PluginError) {
-        Messages.showMessageDialog(
-            project,
-            pluginError.message,
-            pluginError.title,
-            Icons.FindaLogo
-        )
+        project.showErrorDialog(pluginError)
     }
 
     override fun showCreateViewModelTestTemplateDialog(project: Project, selectedDirectory: VirtualFile) {
