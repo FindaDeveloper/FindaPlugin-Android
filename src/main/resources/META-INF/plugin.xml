@@ -25,7 +25,7 @@
                 text="Set Waist Up Timer"/>
         <action id="kr.co.finda.androidtemplate.feature.showLayoutBound.action.ShowLayoutBoundsAction"
                 class="kr.co.finda.androidtemplate.feature.showLayoutBound.action.ShowLayoutBoundsAction"
-                text="Show Layout Bound"
+                text="Show/Hide Layout Bound"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
