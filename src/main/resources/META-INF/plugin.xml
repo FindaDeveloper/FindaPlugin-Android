@@ -27,7 +27,7 @@
                 class="kr.co.finda.androidtemplate.feature.showLayoutBound.action.ShowLayoutBoundsAction"
                 text="Show Layout Bound"
                 icon="Icons.FindaLogo">
-            <add-to-group group-id="ToolsBasicGroup" anchor="last"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
     </actions>
 
