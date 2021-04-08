@@ -5,12 +5,14 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.Project
 import kr.co.finda.androidtemplate.ext.showMessageDialog
+import kr.co.finda.androidtemplate.util.DeviceHelper
+import kr.co.finda.androidtemplate.util.DeviceHelperImpl
 import org.jetbrains.android.sdk.AndroidSdkUtils
 
 class ShowLayoutBoundsAction : AnAction(), ShowLayoutBoundsActionContract.View {
 
     private val presenter: ShowLayoutBoundsActionContract.Presenter by lazy {
-        ShowLayoutBoundsActionPresenter(this)
+        ShowLayoutBoundsActionPresenter(this, DeviceHelperImpl())
     }
 
     override fun actionPerformed(e: AnActionEvent) {
