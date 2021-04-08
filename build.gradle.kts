@@ -56,6 +56,7 @@ intellij {
 
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     setPlugins(*platformPlugins.split(',').map(String::trim).filter(String::isNotEmpty).toTypedArray())
+    alternativeIdePath = "/Applications/Android Studio.app"
 }
 
 // Configure gradle-changelog-plugin plugin.
