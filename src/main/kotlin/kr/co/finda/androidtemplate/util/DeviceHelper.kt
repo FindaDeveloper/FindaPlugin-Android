@@ -13,6 +13,8 @@ interface DeviceHelper {
     fun setDebugLayoutBoundsEnabled(devices: List<IDevice>, isEnabled: Boolean)
 
     fun getDebugDevices(project: Project): List<IDevice>?
+
+    fun clearFindaAppCache(device: IDevice)
 }
 
 class DeviceHelperImpl : DeviceHelper {
@@ -46,5 +48,12 @@ class DeviceHelperImpl : DeviceHelper {
 
     override fun getDebugDevices(project: Project): List<IDevice>? {
         return AndroidSdkUtils.getDebugBridge(project)?.devices?.toList()
+    }
+
+    override fun clearFindaAppCache(device: IDevice) {
+        device.executeShellCommand(
+            "pm clear kr.co.finda.finda.stg",
+            NullOutputReceiver()
+        )
     }
 }
