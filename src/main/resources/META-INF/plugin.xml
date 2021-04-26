@@ -43,6 +43,7 @@
         <liveTemplateContext
                 implementation="kr.co.finda.androidtemplate.feature.liveTemplate.FindaTestTemplateContextType"/>
 
+        <applicationService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpStateComponent"/>
         <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService"/>
 
         <applicationConfigurable parentId="tools"
