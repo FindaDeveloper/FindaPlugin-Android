@@ -15,6 +15,7 @@ class InternalClassInspectionPresenter(
             ?.packageFqName.toString().contains("internal")
         val visibilityModifier = classOrObject.modifierList?.visibilityModifier()?.text
         val isUnavailableModifier = visibilityModifier != "internal" && visibilityModifier != "private"
+
         if (classOrObject.isTopLevel() && isInternalFile && isUnavailableModifier) {
             view.registerProblem(holder, classOrObject)
         }

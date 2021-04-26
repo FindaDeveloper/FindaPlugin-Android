@@ -28,7 +28,7 @@ class InternalClassInspection : AbstractKotlinInspection(), InternalClassInspect
 
     override fun registerProblem(holder: ProblemsHolder, classOrObject: KtClassOrObject) {
         holder.registerProblem(
-            classOrObject.nameIdentifier as PsiElement,
+            classOrObject.nameIdentifier!!,
             "Internal 패키지 내부에선 internal 접근 제한자를 사용해야합니다!",
             InternalClassQuickFix()
         )
