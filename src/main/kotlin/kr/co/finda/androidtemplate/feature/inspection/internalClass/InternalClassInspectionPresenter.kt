@@ -4,6 +4,7 @@ import com.intellij.codeInspection.ProblemsHolder
 import com.intellij.psi.util.AccessModifier
 import org.jetbrains.kotlin.psi.KtClassOrObject
 import org.jetbrains.kotlin.psi.KtFile
+import org.jetbrains.kotlin.psi.psiUtil.visibilityModifier
 
 class InternalClassInspectionPresenter(
     private val view: InternalClassInspectionContract.View
@@ -12,8 +13,9 @@ class InternalClassInspectionPresenter(
     override fun onVisit(holder: ProblemsHolder, classOrObject: KtClassOrObject) {
         val isInternalFile = (classOrObject.parent as? KtFile)
             ?.packageFqName.toString().contains("internal")
-        val isInternalModifier = classOrObject.modifierList?.text == "internal"
-        if (classOrObject.isTopLevel() && isInternalFile && !isInternalModifier) {
+        val visibilityModifier = classOrObject.modifierList?.visibilityModifier()?.text
+        val isUnavailableModifier = visibilityModifier != "internal" && visibilityModifier != "private"
+        if (classOrObject.isTopLevel() && isInternalFile && isUnavailableModifier) {
             view.registerProblem(holder, classOrObject)
         }
     }
