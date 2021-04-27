@@ -1,11 +1,16 @@
 package kr.co.finda.androidtemplate.util
 
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
+import com.intellij.psi.PsiClass
+import com.intellij.psi.PsiJavaFile
 import com.intellij.util.ResourceUtil
 import kr.co.finda.androidtemplate.ext.replaceAll
 import kr.co.finda.androidtemplate.type.FileExtension
+import kr.co.finda.androidtemplate.type.ServerConfig
+import org.jetbrains.kotlin.idea.core.util.toPsiFile
 
 interface FileHelper {
 
@@ -24,6 +29,8 @@ interface FileHelper {
     fun getLayoutDirectory(selectedDirectoryPath: String): VirtualFile?
 
     fun isModuleDirectory(directory: VirtualFile): Boolean
+
+    fun getServerConfig(project: Project, directory: VirtualFile): ServerConfig
 }
 
 class FileHelperImpl(
@@ -73,6 +80,30 @@ class FileHelperImpl(
     override fun isModuleDirectory(directory: VirtualFile): Boolean {
         return directory.children.toList().any {
             it.name.contains("build.gradle")
+        }
+    }
+
+    override fun getServerConfig(project: Project, directory: VirtualFile): ServerConfig {
+        return ServerConfig(
+            dev = getServerConfigFileByFlavor(project, "dev", directory)!!,
+            prd = getServerConfigFileByFlavor(project, "prd", directory)!!,
+            stg = getServerConfigFileByFlavor(project, "stg", directory)!!,
+            uat = getServerConfigFileByFlavor(project, "uat", directory)!!
+        )
+    }
+
+    private fun getServerConfigFileByFlavor(project: Project, flavor: String, moduleDirectory: VirtualFile): PsiClass? {
+        val psiFile =
+            moduleDirectory.findOrCreateFileByRelativePath("src/${flavor}/java/kr/co/finda/finda/config/ServerConfig.java")
+                .toPsiFile(project) as? PsiJavaFile
+
+        return psiFile?.children?.first { it.text.contains("ServerConfig") && it is PsiClass } as? PsiClass
+    }
+
+    private fun VirtualFile.findOrCreateFileByRelativePath(relativePath: String): VirtualFile {
+        return relativePath.split("/").fold(this) { virtualFile, s ->
+            val child = virtualFile.findOrCreateChildData(this, s)
+            child
         }
     }
 
