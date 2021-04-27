@@ -28,8 +28,6 @@ interface FileHelper {
 
     fun getLayoutDirectory(selectedDirectoryPath: String): VirtualFile?
 
-    fun isModuleDirectory(directory: VirtualFile): Boolean
-
     fun getServerConfig(project: Project, directory: VirtualFile): ServerConfig
 }
 
@@ -75,12 +73,6 @@ class FileHelperImpl(
         val layoutPath = "${mainPath}/src/main/res/layout"
         return VirtualFileManager.getInstance()
             .findFileByUrl("file://${layoutPath}")
-    }
-
-    override fun isModuleDirectory(directory: VirtualFile): Boolean {
-        return directory.children.toList().any {
-            it.name.contains("build.gradle")
-        }
     }
 
     override fun getServerConfig(project: Project, directory: VirtualFile): ServerConfig {
