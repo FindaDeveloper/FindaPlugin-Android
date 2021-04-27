@@ -36,6 +36,12 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
+        <action id="kr.co.finda.androidtemplate.feature.addServerConfig.AddServerConfigAction"
+                class="kr.co.finda.androidtemplate.feature.addServerConfig.AddServerConfigAction"
+                text="Add Server Config"
+                icon="Icons.FindaLogo">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
