@@ -3,17 +3,9 @@ package kr.co.finda.androidtemplate.feature.waistUp
 import com.intellij.notification.NotificationDisplayType
 import com.intellij.notification.NotificationGroup
 import com.intellij.notification.NotificationType
-import com.intellij.openapi.components.PersistentStateComponent
-import com.intellij.openapi.components.State
-import com.intellij.openapi.components.Storage
 import kotlinx.coroutines.*
-import kr.co.finda.androidtemplate.type.WaistUpState
 
-@State(
-    name = "WaistUp",
-    storages = [Storage("FindaPlugin.xml")]
-)
-object WaistUpService : PersistentStateComponent<WaistUpState> {
+object WaistUpService {
 
     private val balloonGroup = NotificationGroup(
         "FindaTest",
@@ -21,20 +13,14 @@ object WaistUpService : PersistentStateComponent<WaistUpState> {
         true
     )
 
-    private var state = WaistUpState()
+    private val state: WaistUpStateComponent by lazy {
+        WaistUpStateComponent.createInstance()
+    }
 
     var job: Job? = null
 
     init {
         setNotificationEnable(state.isEnabled)
-    }
-
-    override fun getState(): WaistUpState {
-        return state
-    }
-
-    override fun loadState(state: WaistUpState) {
-        this.state = state
     }
 
     fun setNotificationEnable(isEnable: Boolean) {
@@ -43,7 +29,7 @@ object WaistUpService : PersistentStateComponent<WaistUpState> {
     }
 
     private fun startNotification() {
-        job = GlobalScope.launch(Dispatchers.IO) {
+        job = GlobalScope.launch {
             while (true) {
                 val notification = balloonGroup.createNotification(
                     title = "허리를 FINDA!",
@@ -53,10 +39,10 @@ object WaistUpService : PersistentStateComponent<WaistUpState> {
                 notification.addAction(SetWaistUpStateAction())
                 notification.notify(null)
 
-                delay(state.hideDelay)
+                delay(state.dialogDisplayTime)
                 notification.expire()
 
-                delay(state.waitDelay)
+                delay(state.dialogWaitTime)
             }
         }
     }

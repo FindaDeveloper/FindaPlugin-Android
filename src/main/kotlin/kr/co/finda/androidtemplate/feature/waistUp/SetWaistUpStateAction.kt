@@ -2,6 +2,7 @@ package kr.co.finda.androidtemplate.feature.waistUp
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.options.ShowSettingsUtil
 import com.intellij.openapi.options.newEditor.SettingsDialog
 import kr.co.finda.androidtemplate.feature.setting.FindaSettingConfigurable
