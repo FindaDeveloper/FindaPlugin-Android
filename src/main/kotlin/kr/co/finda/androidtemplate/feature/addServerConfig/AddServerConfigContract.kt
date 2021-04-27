@@ -8,7 +8,7 @@ import kr.co.finda.androidtemplate.type.ServerConfig
 interface AddServerConfigContract {
 
     interface View {
-        fun showAddServerConfigDialog(serverConfig: ServerConfig)
+        fun showAddServerConfigDialog(project: Project, serverConfig: ServerConfig)
     }
 
     interface Presenter {

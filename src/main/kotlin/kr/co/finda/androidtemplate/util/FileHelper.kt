@@ -86,9 +86,9 @@ class FileHelperImpl(
     override fun getServerConfig(project: Project, directory: VirtualFile): ServerConfig {
         return ServerConfig(
             dev = getServerConfigFileByFlavor(project, "dev", directory)!!,
-            prd = getServerConfigFileByFlavor(project, "prd", directory)!!,
             stg = getServerConfigFileByFlavor(project, "stg", directory)!!,
-            uat = getServerConfigFileByFlavor(project, "uat", directory)!!
+            uat = getServerConfigFileByFlavor(project, "uat", directory)!!,
+            prd = getServerConfigFileByFlavor(project, "prd", directory)!!,
         )
     }
 

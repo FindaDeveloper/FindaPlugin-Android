@@ -12,7 +12,7 @@ class AddServerConfigPresenter(
 
     override fun onActionPerformed(project: Project, selectedDirectory: VirtualFile) {
         val serverConfig = fileHelper.getServerConfig(project, selectedDirectory)
-        view.showAddServerConfigDialog(serverConfig)
+        view.showAddServerConfigDialog(project, serverConfig)
     }
 
     override fun onActionUpdate(e: AnActionEvent, selectedDirectory: VirtualFile?) {
