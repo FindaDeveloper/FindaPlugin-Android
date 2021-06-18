@@ -2,21 +2,29 @@
   <template name="tcase" value="@Test&#10;fun `$NAME$`() {&#10;    // GIVEN&#10;    $CONTENT$&#10;    &#10;    // WHEN&#10;    &#10;    // THEN&#10;}" description="Create test case" toReformat="false" toShortenFQNames="true">
     <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
-    <context />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
   </template>
   <template name="tnest" value="@Nested&#10;@DisplayName(&quot;$DISPLAY_NAME$&quot;)&#10;inner class $CLASS_NAME$ {&#10;&#10;    $CONTENT$&#10;}&#10;" description="Create @Nested class" toReformat="false" toShortenFQNames="true">
     <variable name="DISPLAY_NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="CLASS_NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
-    <context />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
   </template>
   <template name="tmock" value="@Mock&#10;private lateinit var $NAME$: $TYPE$" description="Create @Mock property" toReformat="false" toShortenFQNames="true">
     <variable name="NAME" expression="capitalize(String)" defaultValue="" alwaysStopAt="true" />
     <variable name="TYPE" expression="" defaultValue="" alwaysStopAt="true" />
-    <context />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
   </template>
   <template name="tgiven" value="// GIVEN&#10;$CONTENT$&#10;&#10;// WHEN&#10;&#10;// THEN" description="Create Given When Then format" toReformat="false" toShortenFQNames="true">
     <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
-    <context />
+    <context>
+      <option name="KOTLIN" value="true" />
+    </context>
   </template>
 </templateSet>
