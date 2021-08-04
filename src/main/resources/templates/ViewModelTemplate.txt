@@ -1,8 +1,8 @@
 package $PACKAGE$
 
-import kr.co.finda.finda.coreComponent.ui.base.BaseViewModel
+import kr.co.finda.finda.ui.base.v2.BaseViewModelV2
 
-class $NAME$ViewModel : BaseViewModel() {
+class $NAME$ViewModel : BaseViewModelV2() {
 
 
 }
