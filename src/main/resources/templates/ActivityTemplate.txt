@@ -1,15 +1,28 @@
 package $PACKAGE$
 
+import androidx.lifecycle.LifecycleOwner
 import kr.co.finda.finda.R
 import kr.co.finda.finda.databinding.Activity$NAME$Binding
-import kr.co.finda.finda.ui.base.BaseActivity
+import kr.co.finda.finda.ui.base.v2.BaseActivityV2
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class $NAME$Activity : BaseActivity<Activity$NAME$Binding, $NAME$ViewModel>(
-    R.layout.$LAYOUT_NAME$,
-    $NAME$ViewModel::class.java
+
+class $NAME$Activity : BaseActivityV2<Activity$NAME$Binding, $NAME$ViewModel>(
+    R.layout.$LAYOUT_NAME$
 ) {
 
-    override fun setBindingVariables() {
+    override val viewModel: $NAME$ViewModel by viewModel()
+
+    override fun onInitialize(lifecycleOwner: LifecycleOwner) {
+        super.onInitialize(lifecycleOwner)
         binding.viewModel = viewModel
+    }
+
+    override fun setupUiComponent() {
+
+    }
+
+    override fun observeLiveData() {
+
     }
 }
