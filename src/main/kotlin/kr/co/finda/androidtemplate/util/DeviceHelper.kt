@@ -19,6 +19,8 @@ interface DeviceHelper {
     fun getDebugDevices(project: Project): List<IDevice>?
 
     fun clearFindaAppCache(device: IDevice)
+
+    fun installFindaStgImmediately(devices: List<IDevice>)
 }
 
 class DeviceHelperImpl : DeviceHelper {
@@ -53,7 +55,7 @@ class DeviceHelperImpl : DeviceHelper {
     override fun getShowOverdrawEnabled(device: IDevice, on: (isEnabled: Boolean) -> Unit) {
         device.executeShellCommand(
             "getprop debug.hwui.overdraw",
-            object: MultiLineReceiver() {
+            object : MultiLineReceiver() {
                 var cancelled = false
 
                 override fun isCancelled(): Boolean {
@@ -87,5 +89,14 @@ class DeviceHelperImpl : DeviceHelper {
             "pm clear kr.co.finda.finda.stg",
             NullOutputReceiver()
         )
+    }
+
+    override fun installFindaStgImmediately(devices: List<IDevice>) {
+        devices.forEach { device ->
+            device.executeShellCommand(
+                "install -t app/build/outputs/apk/stg/debug/app-stg-debug.apk",
+                NullOutputReceiver()
+            )
+        }
     }
 }

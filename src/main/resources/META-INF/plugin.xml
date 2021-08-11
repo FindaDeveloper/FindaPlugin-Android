@@ -48,6 +48,13 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
+        <action id="kr.co.finda.androidtemplate.feature.installImmediately.InstallImmediatelyAction"
+                class="kr.co.finda.androidtemplate.feature.installImmediately.InstallImmediatelyAction"
+                text="Install Finda STG Immediately"
+                description="Install Finda STG Immediately"
+                icon="Icons.FindaLogo">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
