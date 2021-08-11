@@ -3,25 +3,24 @@ package $PACKAGE$
 import androidx.lifecycle.LifecycleOwner
 import kr.co.finda.finda.R
 import kr.co.finda.finda.databinding.Fragment$NAME$Binding
-import kr.co.finda.finda.ui.base.v2.BaseFragmentV2
+import kr.co.finda.finda.ui.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class $NAME$Fragment : BaseFragment<Fragment$NAME$Binding>(
+class $NAME$Fragment : BaseFragment<Fragment$NAME$Binding, $NAME$ViewModel>(
     R.layout.$LAYOUT_NAME$
 ) {
+    override val viewModel: $NAME$ViewModel by sharedViewModel()
 
-     override val viewModel: $NAME$ViewModel by sharedViewModel()
+    override fun onInitialize(lifecycleOwner: LifecycleOwner) {
+        super.onInitialize(lifecycleOwner)
+        binding.viewModel = viewModel
+    }
 
-        override fun onInitialize(lifecycleOwner: LifecycleOwner) {
-            super.onInitialize(lifecycleOwner)
-            binding.viewModel = viewModel
-        }
+    override fun setupUiComponent() {
 
-        override fun setupUiComponent() {
+    }
 
-        }
+    override fun observeLiveData() {
 
-        override fun observeLiveData() {
-
-        }
+    }
 }

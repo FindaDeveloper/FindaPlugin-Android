@@ -3,7 +3,7 @@ package $PACKAGE$
 import androidx.lifecycle.LifecycleOwner
 import kr.co.finda.finda.R
 import kr.co.finda.finda.databinding.Activity$NAME$Binding
-import kr.co.finda.finda.ui.base.v2.BaseActivityV2
+import kr.co.finda.finda.ui.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
