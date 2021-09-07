@@ -55,6 +55,11 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
+        <action id="kr.co.finda.androidtemplate.feature.resign.ResignAction"
+                class="kr.co.finda.androidtemplate.feature.resign.ResignAction" text="Re-sign Finda Aab "
+                description="Re-sign finda aab">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
