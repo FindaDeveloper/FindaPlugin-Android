@@ -42,8 +42,8 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.showOverdraw.ShowOverdrawAction"
-                class="kr.co.finda.androidtemplate.feature.showOverdraw.ShowOverdrawAction" text="Show/Hide Overdraw"
+        <action id="kr.co.finda.androidtemplate.feature.ShowOverdrawAction"
+                class="kr.co.finda.androidtemplate.feature.ShowOverdrawAction" text="Show/Hide Overdraw"
                 description="Show or hide overdraw"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
