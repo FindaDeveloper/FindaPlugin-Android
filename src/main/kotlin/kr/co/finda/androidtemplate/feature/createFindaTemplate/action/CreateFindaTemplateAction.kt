@@ -4,12 +4,10 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.project.Project
-import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.VirtualFile
-import icons.Icons
-import kr.co.finda.androidtemplate.ext.showErrorDialog
-import kr.co.finda.androidtemplate.type.PluginError
+import kr.co.finda.androidtemplate.ext.showDialog
 import kr.co.finda.androidtemplate.feature.createFindaTemplate.dialog.CreateFindaTemplateDialog
+import kr.co.finda.androidtemplate.type.PluginError
 import kr.co.finda.androidtemplate.util.ActionRouterImpl
 
 class CreateFindaTemplateAction :
@@ -35,7 +33,7 @@ class CreateFindaTemplateAction :
         project: Project,
         error: PluginError
     ) {
-        project.showErrorDialog(error)
+        project.showDialog(error.title, error.message)
     }
 
     override fun showCreateFindaTemplateDialog(

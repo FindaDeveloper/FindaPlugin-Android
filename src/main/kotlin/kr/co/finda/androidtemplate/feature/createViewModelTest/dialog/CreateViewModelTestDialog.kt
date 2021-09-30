@@ -2,12 +2,10 @@ package kr.co.finda.androidtemplate.feature.createViewModelTest.dialog
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.DialogWrapper
-import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
-import icons.Icons
-import kr.co.finda.androidtemplate.ext.showMessageDialog
+import kr.co.finda.androidtemplate.ext.showDialog
 import kr.co.finda.androidtemplate.util.FileHelperImpl
 import kr.co.finda.androidtemplate.util.ReplacerImpl
 import kr.co.finda.androidtemplate.type.PluginError
@@ -46,7 +44,7 @@ class CreateViewModelTestDialog(
     }
 
     override fun showConflictNameDialog(project: Project, pluginError: PluginError, conflictedFileName: String) {
-        project.showMessageDialog(
+        project.showDialog(
             title = pluginError.title,
             message = "${pluginError.message}\n${conflictedFileName}"
         )

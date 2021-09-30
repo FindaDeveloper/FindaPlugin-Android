@@ -5,7 +5,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
-import kr.co.finda.androidtemplate.ext.showErrorDialog
+import kr.co.finda.androidtemplate.ext.showDialog
 import kr.co.finda.androidtemplate.feature.createViewModelTest.dialog.CreateViewModelTestDialog
 import kr.co.finda.androidtemplate.type.PluginError
 import kr.co.finda.androidtemplate.util.ActionRouterImpl
@@ -30,7 +30,7 @@ class CreateViewModelTestAction :
     }
 
     override fun showErrorDialog(project: Project, pluginError: PluginError) {
-        project.showErrorDialog(pluginError)
+        project.showDialog(pluginError.title, pluginError.message)
     }
 
     override fun showCreateViewModelTestTemplateDialog(project: Project, selectedDirectory: VirtualFile) {

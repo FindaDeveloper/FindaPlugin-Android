@@ -3,7 +3,7 @@ package kr.co.finda.androidtemplate.feature.showOverdraw
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.Project
-import kr.co.finda.androidtemplate.ext.showMessageDialog
+import kr.co.finda.androidtemplate.ext.showDialog
 import kr.co.finda.androidtemplate.util.DeviceHelperImpl
 
 class ShowOverdrawAction : AnAction(), ShowOverdrawContract.View {
@@ -17,6 +17,6 @@ class ShowOverdrawAction : AnAction(), ShowOverdrawContract.View {
     }
 
     override fun showDialog(project: Project, title: String, description: String) {
-        project.showMessageDialog(title, description)
+        project.showDialog(title, description)
     }
 }
