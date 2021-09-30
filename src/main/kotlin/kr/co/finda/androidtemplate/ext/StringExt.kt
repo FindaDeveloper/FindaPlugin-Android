@@ -17,8 +17,3 @@ fun String.replaceAllIfNotNull(oldValue: String, newValue: String?): String {
         this
     }
 }
-
-fun String.toCamelCase(): String {
-    "JOBObject"
-    return "Test"
-}
