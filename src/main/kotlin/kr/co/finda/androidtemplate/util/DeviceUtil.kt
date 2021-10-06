@@ -15,6 +15,8 @@ object DeviceUtil {
     private const val COMMAND_GET_LAYOUT_BOUND_PROPERTY = "getprop debug.layout"
     private const val COMMAND_SET_LAYOUT_BOUND_PROPERTY = "setprop debug.layout %d ; service call activity 1599295570"
 
+    private const val COMMAND_CLEAR_CACHE = "pm clear kr.co.finda.finda.stg"
+
     fun getDebugDevices(project: Project): List<IDevice> {
         return AndroidSdkUtils.getDebugBridge(project)?.devices?.toList() ?: emptyList()
     }
@@ -43,6 +45,10 @@ object DeviceUtil {
                 )
             }
         })
+    }
+
+    fun clearFindaStgAppCache(device: IDevice) {
+        device.executeShellCommand(COMMAND_CLEAR_CACHE, NullOutputReceiver())
     }
 
     private fun generateMultilineReceiver(

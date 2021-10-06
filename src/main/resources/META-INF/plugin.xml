@@ -29,8 +29,8 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.clearCache.ClearCacheAction"
-                class="kr.co.finda.androidtemplate.feature.clearCache.ClearCacheAction"
+        <action id="kr.co.finda.androidtemplate.feature.ClearCacheAction"
+                class="kr.co.finda.androidtemplate.feature.ClearCacheAction"
                 text="Clear Finda STG App Cache"
                 description="Clear finda stage app cache"
                 icon="Icons.FindaLogo">
