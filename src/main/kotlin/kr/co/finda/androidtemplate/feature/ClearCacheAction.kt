@@ -3,7 +3,6 @@ package kr.co.finda.androidtemplate.feature
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import kr.co.finda.androidtemplate.ext.showDialog
-import kr.co.finda.androidtemplate.util.DeviceHelperImpl
 import kr.co.finda.androidtemplate.util.DeviceUtil
 
 class ClearCacheAction : AnAction() {

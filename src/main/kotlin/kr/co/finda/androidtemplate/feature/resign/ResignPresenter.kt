@@ -1,12 +1,10 @@
 package kr.co.finda.androidtemplate.feature.resign
 
 import com.intellij.execution.configurations.GeneralCommandLine
-import com.intellij.execution.process.OSProcessHandler
 import com.intellij.execution.process.ScriptRunnerUtil
 import com.intellij.execution.util.ExecUtil
 import com.intellij.openapi.project.Project
 import kr.co.finda.androidtemplate.type.AabType
-import kr.co.finda.androidtemplate.util.DeviceHelper
 import java.nio.charset.Charset
 
 class ResignPresenter(

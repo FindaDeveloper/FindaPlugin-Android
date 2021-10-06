@@ -3,14 +3,12 @@ package kr.co.finda.androidtemplate.feature.resign
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogWrapper
-import com.intellij.openapi.ui.showOkCancelDialog
 import com.intellij.openapi.ui.showOkNoDialog
 import com.intellij.ui.EnumComboBoxModel
 import com.intellij.ui.components.JBTextArea
 import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
 import kr.co.finda.androidtemplate.type.AabType
-import kr.co.finda.androidtemplate.util.DeviceHelperImpl
 import javax.swing.JComponent
 
 class ResignDialog(
