@@ -1,4 +1,4 @@
-package kr.co.finda.findaplugin.action.inspection.internalClass.quickFix
+package kr.co.finda.findaplugin.inspection.internalClass
 
 import com.intellij.codeInspection.LocalQuickFix
 import com.intellij.codeInspection.ProblemDescriptor

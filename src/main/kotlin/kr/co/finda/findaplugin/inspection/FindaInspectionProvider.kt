@@ -1,8 +1,8 @@
-package kr.co.finda.findaplugin.action.inspection
+package kr.co.finda.findaplugin.inspection
 
 import com.intellij.codeInspection.InspectionToolProvider
 import com.intellij.codeInspection.LocalInspectionTool
-import kr.co.finda.findaplugin.action.inspection.internalClass.InternalClassInspection
+import kr.co.finda.findaplugin.inspection.internalClass.InternalClassInspection
 
 class FindaInspectionProvider : InspectionToolProvider {
     override fun getInspectionClasses(): Array<Class<out LocalInspectionTool>> {

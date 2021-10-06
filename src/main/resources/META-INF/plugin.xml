@@ -68,7 +68,7 @@
                                  displayName="Finda Settings"/>
 
         <inspectionToolProvider
-                implementation="kr.co.finda.findaplugin.action.inspection.FindaInspectionProvider"/>
+                implementation="kr.co.finda.findaplugin.inspection.FindaInspectionProvider"/>
     </extensions>
 
     <applicationListeners>
