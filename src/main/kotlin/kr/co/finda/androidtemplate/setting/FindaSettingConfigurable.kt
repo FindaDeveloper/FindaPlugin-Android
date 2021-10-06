@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate.feature.setting
+package kr.co.finda.androidtemplate.setting
 
 import com.intellij.openapi.options.Configurable
 import kr.co.finda.androidtemplate.feature.waistUp.WaistUpService

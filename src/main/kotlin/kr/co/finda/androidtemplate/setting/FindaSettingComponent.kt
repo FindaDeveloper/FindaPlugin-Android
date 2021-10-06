@@ -1,4 +1,4 @@
-package kr.co.finda.androidtemplate.feature.setting
+package kr.co.finda.androidtemplate.setting
 
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.components.JBLabel

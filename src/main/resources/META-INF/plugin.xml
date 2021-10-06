@@ -63,8 +63,8 @@
         <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService"/>
 
         <applicationConfigurable parentId="tools"
-                                 instance="kr.co.finda.androidtemplate.feature.setting.FindaSettingConfigurable"
-                                 id="kr.co.finda.androidtemplate.feature.setting.FindaSettingConfigurable"
+                                 instance="kr.co.finda.androidtemplate.setting.FindaSettingConfigurable"
+                                 id="kr.co.finda.androidtemplate.setting.FindaSettingConfigurable"
                                  displayName="Finda Settings"/>
 
         <inspectionToolProvider
