@@ -48,8 +48,8 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="kr.co.finda.findaplugin.action.resign.ResignAction"
-                class="kr.co.finda.findaplugin.action.resign.ResignAction" text="Re-sign Finda Aab "
+        <action id="kr.co.finda.findaplugin.action.ResignAction"
+                class="kr.co.finda.findaplugin.action.ResignAction" text="Re-sign Finda Aab "
                 description="Re-sign finda aab"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
