@@ -14,20 +14,20 @@ fun Project.showDialog(
     Messages.showMessageDialog(this, message, title, Icons.FindaLogo)
 }
 
-fun Project.showDialog(
+fun <T : DialogUi> Project.showDialog(
     title: String,
-    dialogUi: DialogUi,
-    onClickOk: (ui: DialogUi) -> Unit
+    dialogUi: T,
+    onClickOk: (ui: T) -> Unit
 ) {
     CustomDialogWrapper(this, title, dialogUi, onClickOk).showDialog()
 }
 
 
-class CustomDialogWrapper(
+class CustomDialogWrapper<T : DialogUi>(
     private val project: Project,
     private val title: String,
-    private val dialogUi: DialogUi,
-    private val onClickOk: (ui: DialogUi) -> Unit
+    private val dialogUi: T,
+    private val onClickOk: (ui: T) -> Unit
 ) {
 
     fun showDialog() {
@@ -39,7 +39,7 @@ class CustomDialogWrapper(
             }
 
             override fun createCenterPanel(): JComponent =
-                dialogUi.panel
+                dialogUi.generatePanel()
 
             override fun doOKAction() {
                 onClickOk(dialogUi)
@@ -52,5 +52,5 @@ class CustomDialogWrapper(
 }
 
 interface DialogUi {
-    val panel: JPanel
+    fun generatePanel(): JPanel
 }

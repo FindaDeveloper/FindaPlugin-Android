@@ -36,8 +36,8 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.addServerConfig.AddServerConfigAction"
-                class="kr.co.finda.androidtemplate.feature.addServerConfig.AddServerConfigAction"
+        <action id="kr.co.finda.androidtemplate.feature.AddServerConfigAction"
+                class="kr.co.finda.androidtemplate.feature.AddServerConfigAction"
                 text="Add Server Config"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
