@@ -14,8 +14,8 @@
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
-        <action id="kr.co.finda.findaplugin.action.createViewModelTest.action.CreateViewModelTestAction"
-                class="kr.co.finda.findaplugin.action.createViewModelTest.action.CreateViewModelTestAction"
+        <action id="kr.co.finda.findaplugin.action.CreateViewModelTestAction"
+                class="kr.co.finda.findaplugin.action.CreateViewModelTestAction"
                 text="New ViewModel Test"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>

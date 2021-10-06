@@ -1,12 +1,5 @@
 package kr.co.finda.findaplugin.util
 
-import kr.co.finda.findaplugin.ext.replaceAllIfNotNull
-
-interface Replacer {
-
-    fun replace(content: String, replacements: Replacements): String
-}
-
 class ReplacerImpl : Replacer {
 
     override fun replace(
@@ -19,10 +12,3 @@ class ReplacerImpl : Replacer {
             .replaceAllIfNotNull("\$VM_PACKAGE$", replacements.viewModelPackage)
     }
 }
-
-data class Replacements(
-    val packageName: String? = null,
-    val layoutName: String? = null,
-    val name: String? = null,
-    val viewModelPackage: String? = null
-)
