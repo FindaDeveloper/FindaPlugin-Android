@@ -7,49 +7,49 @@
     <depends>org.jetbrains.android</depends>
 
     <actions>
-        <action id="kr.co.finda.androidtemplate.feature.createFindaTemplate.action.CreateFindaTemplateAction"
-                class="kr.co.finda.androidtemplate.feature.createFindaTemplate.action.CreateFindaTemplateAction"
+        <action id="kr.co.finda.androidtemplate.action.createFindaTemplate.action.CreateFindaTemplateAction"
+                class="kr.co.finda.androidtemplate.action.createFindaTemplate.action.CreateFindaTemplateAction"
                 text="New Finda Template"
                 description="This is Finda"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.createViewModelTest.action.CreateViewModelTestAction"
-                class="kr.co.finda.androidtemplate.feature.createViewModelTest.action.CreateViewModelTestAction"
+        <action id="kr.co.finda.androidtemplate.action.createViewModelTest.action.CreateViewModelTestAction"
+                class="kr.co.finda.androidtemplate.action.createViewModelTest.action.CreateViewModelTestAction"
                 text="New ViewModel Test"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.waistUp.SetWaistUpStateAction"
-                class="kr.co.finda.androidtemplate.feature.waistUp.SetWaistUpStateAction"
+        <action id="kr.co.finda.androidtemplate.action.SetWaistUpStateAction"
+                class="kr.co.finda.androidtemplate.action.SetWaistUpStateAction"
                 text="Set Waist Up Timer"/>
-        <action id="kr.co.finda.androidtemplate.feature.ShowLayoutBoundsAction"
-                class="kr.co.finda.androidtemplate.feature.ShowLayoutBoundsAction"
+        <action id="kr.co.finda.androidtemplate.action.ShowLayoutBoundsAction"
+                class="kr.co.finda.androidtemplate.action.ShowLayoutBoundsAction"
                 text="Show/Hide Layout Bound"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.ClearCacheAction"
-                class="kr.co.finda.androidtemplate.feature.ClearCacheAction"
+        <action id="kr.co.finda.androidtemplate.action.ClearCacheAction"
+                class="kr.co.finda.androidtemplate.action.ClearCacheAction"
                 text="Clear Finda STG App Cache"
                 description="Clear finda stage app cache"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.AddServerConfigAction"
-                class="kr.co.finda.androidtemplate.feature.AddServerConfigAction"
+        <action id="kr.co.finda.androidtemplate.action.AddServerConfigAction"
+                class="kr.co.finda.androidtemplate.action.AddServerConfigAction"
                 text="Add Server Config"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.ShowOverdrawAction"
-                class="kr.co.finda.androidtemplate.feature.ShowOverdrawAction" text="Show/Hide Overdraw"
+        <action id="kr.co.finda.androidtemplate.action.ShowOverdrawAction"
+                class="kr.co.finda.androidtemplate.action.ShowOverdrawAction" text="Show/Hide Overdraw"
                 description="Show or hide overdraw"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.resign.ResignAction"
-                class="kr.co.finda.androidtemplate.feature.resign.ResignAction" text="Re-sign Finda Aab "
+        <action id="kr.co.finda.androidtemplate.action.resign.ResignAction"
+                class="kr.co.finda.androidtemplate.action.resign.ResignAction" text="Re-sign Finda Aab "
                 description="Re-sign finda aab"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
@@ -59,21 +59,21 @@
     <extensions defaultExtensionNs="com.intellij">
         <defaultLiveTemplates file="/liveTemplates/FindaTest.xml"/>
 
-        <applicationService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpStateComponent"/>
-        <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService"/>
+        <applicationService serviceImplementation="kr.co.finda.androidtemplate.persistent.WaistUpStateComponent"/>
+        <projectService serviceImplementation="kr.co.finda.androidtemplate.service.WaistUpService"/>
 
         <applicationConfigurable parentId="tools"
-                                 instance="kr.co.finda.androidtemplate.setting.FindaSettingConfigurable"
-                                 id="kr.co.finda.androidtemplate.setting.FindaSettingConfigurable"
+                                 instance="kr.co.finda.androidtemplate.configuration.FindaSettingConfigurable"
+                                 id="kr.co.finda.androidtemplate.configuration.FindaSettingConfigurable"
                                  displayName="Finda Settings"/>
 
         <inspectionToolProvider
-                implementation="kr.co.finda.androidtemplate.feature.inspection.FindaInspectionProvider"/>
+                implementation="kr.co.finda.androidtemplate.action.inspection.FindaInspectionProvider"/>
     </extensions>
 
     <applicationListeners>
         <listener
-                class="kr.co.finda.androidtemplate.FindaProjectManagerListener"
+                class="kr.co.finda.androidtemplate.service.FindaProjectManagerListener"
                 topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>
