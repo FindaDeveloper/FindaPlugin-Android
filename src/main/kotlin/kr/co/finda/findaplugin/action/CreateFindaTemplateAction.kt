@@ -5,7 +5,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
-import com.intellij.openapi.vfs.VfsUtil
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.ui.EnumComboBoxModel
@@ -17,7 +16,7 @@ import kr.co.finda.findaplugin.ext.showDialog
 import kr.co.finda.findaplugin.model.ScreenType
 import kr.co.finda.findaplugin.model.Template
 import kr.co.finda.findaplugin.model.TemplateParam
-import kr.co.finda.findaplugin.util.DirectoryUtil
+import kr.co.finda.findaplugin.util.FileUtil
 import kr.co.finda.findaplugin.util.TemplateUtil
 import javax.swing.JPanel
 
@@ -36,7 +35,7 @@ class CreateFindaTemplateAction : AnAction() {
                 return@showDialog
             }
 
-            val packageName = DirectoryUtil.getPackageByPath(selectedDirectory.path)
+            val packageName = FileUtil.getPackageByPath(selectedDirectory.path)
             createScreenCodeFile(name, packageName, screenType, selectedDirectory)
             createViewModelFile(name, packageName, selectedDirectory)
             createLayoutFile(project, name, packageName, screenType, selectedDirectory)
@@ -54,12 +53,18 @@ class CreateFindaTemplateAction : AnAction() {
         screenType: ScreenType,
         selectedDirectoryPath: String
     ): Boolean {
-        val hasScreenFile = VirtualFileManager.getInstance()
-            .findFileByUrl("file://${selectedDirectoryPath}/${name}${screenType.postfix}.kt") != null
-        val hasViewModelFile = VirtualFileManager.getInstance()
-            .findFileByUrl("file://${selectedDirectoryPath}/${name}ViewModel.kt") != null
+        val hasScreenFile = FileUtil.hasConflictFileName(
+            "${name}${screenType.postfix}.kt",
+            selectedDirectoryPath
+        )
+        val hasViewModelFile = FileUtil.hasConflictFileName(
+            "${name}ViewModel.kt",
+            selectedDirectoryPath
+        )
+        val layoutDirectory = getLayoutDirectory(selectedDirectoryPath)?.path ?: ""
+        val hasLayoutFile = FileUtil.hasConflictFileName(getLayoutName(screenType, name), layoutDirectory)
 
-        return hasScreenFile || hasViewModelFile
+        return hasScreenFile || hasViewModelFile || hasLayoutFile
     }
 
     private fun createScreenCodeFile(
