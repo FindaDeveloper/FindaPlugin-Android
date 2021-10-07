@@ -1,40 +1,41 @@
-# FindaTemplatePlugin-Android
-
-![Build](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/workflows/Build/badge.svg) 
+# Intellij plugin for Finda
+ 
 ![Version](https://img.shields.io/jetbrains/plugin/v/16115-findatemplate) 
 ![Downloads](https://img.shields.io/jetbrains/plugin/d/16115-findatemplate)
 
 <!-- Plugin description -->
-The Finda Intellij plugin offers a variety of tools to reduce the Android development process.
+Set of useful features for Finda Developer!  
+ 
+It replace repetitive cumbersome tasks.  
+This allows developers to focus more on business logic.  
+Templates, frequently used commands, and even healthcare!
+
+---
 
 ## Features
-1. Code template  
-   Common features for Finda Android projects such as Activity, Fragment, and ViewModel  
-   Provides a template for automatically generating boilerplate codes.
+### Templates
+Write the base code that needs to be written repeatedly instead!  
+All you need to do is enter the screen name, the plugin creates files and write base code instead of you.  
+Developers just need to focus on developing features.
+![CodeTemplate example](https://user-images.githubusercontent.com/36754680/108012774-97698600-704d-11eb-9512-74393bc2003b.png)
 
-![CodeTemplate](https://user-images.githubusercontent.com/36754680/108012774-97698600-704d-11eb-9512-74393bc2003b.png)
+### Useful commands
+Run commands that are repeatedly used during development with a click.
+* Re-sign AAB file 
+* Clear application cache
+* Show overdraw or layout bounds
 
-Many functions will be added in the future.
-Thank you!
+### Code inspection
+Plugin checks the code in real time and induces you to write it according to the code style.  
+It also introduces the 'quick fix' to help you fix problems automatically.  
+
+### Health care
+Encourage you to maintain the right posture every certain time.
+You can customize the time yourself or turn off.
 
 <!-- Plugin description end -->
 
-<br>
-
-## Installation
-
-- IDE 내장 플러그인 시스템을 사용하여 플러그인 설치
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "FindaTemplate"</kbd> >
-  <kbd>Install Plugin</kbd>
-
-<br>
-
-## 가이드라인
-* [개발 가이드라인](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/blob/main/DEVELOP.md)
-* [브랜치 및 컨트리뷰팅](https://github.com/FindaDeveloper/FindaTemplatePlugin-Android/blob/main/CONTRIBUTING.md)
-
-<br>
+---
 
 ## LICENSE
 ```
@@ -62,4 +63,3 @@ SOFTWARE.
 ```
 
 ---
-해당 플러그인은 [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template) 기반으로 작성되었습니다.
