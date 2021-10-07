@@ -1,5 +1,5 @@
 <idea-plugin require-restart="true">
-    <id>kr.co.finda.androidtemplate</id>
+    <id>kr.co.finda.findaplugin</id>
     <name>FindaTemplate</name>
     <vendor>Dohun Kim</vendor>
 
@@ -7,81 +7,73 @@
     <depends>org.jetbrains.android</depends>
 
     <actions>
-        <action id="kr.co.finda.androidtemplate.feature.createFindaTemplate.action.CreateFindaTemplateAction"
-                class="kr.co.finda.androidtemplate.feature.createFindaTemplate.action.CreateFindaTemplateAction"
+        <action id="kr.co.finda.findaplugin.action.CreateFindaTemplateAction"
+                class="kr.co.finda.findaplugin.action.CreateFindaTemplateAction"
                 text="New Finda Template"
                 description="This is Finda"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.createViewModelTest.action.CreateViewModelTestAction"
-                class="kr.co.finda.androidtemplate.feature.createViewModelTest.action.CreateViewModelTestAction"
+        <action id="kr.co.finda.findaplugin.action.CreateViewModelTestAction"
+                class="kr.co.finda.findaplugin.action.CreateViewModelTestAction"
                 text="New ViewModel Test"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.waistUp.SetWaistUpStateAction"
-                class="kr.co.finda.androidtemplate.feature.waistUp.SetWaistUpStateAction"
+        <action id="kr.co.finda.findaplugin.action.SetWaistUpStateAction"
+                class="kr.co.finda.findaplugin.action.SetWaistUpStateAction"
                 text="Set Waist Up Timer"/>
-        <action id="kr.co.finda.androidtemplate.feature.showLayoutBound.action.ShowLayoutBoundsAction"
-                class="kr.co.finda.androidtemplate.feature.showLayoutBound.action.ShowLayoutBoundsAction"
+        <action id="kr.co.finda.findaplugin.action.ShowLayoutBoundsAction"
+                class="kr.co.finda.findaplugin.action.ShowLayoutBoundsAction"
                 text="Show/Hide Layout Bound"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.clearCache.ClearCacheAction"
-                class="kr.co.finda.androidtemplate.feature.clearCache.ClearCacheAction"
+        <action id="kr.co.finda.findaplugin.action.ClearCacheAction"
+                class="kr.co.finda.findaplugin.action.ClearCacheAction"
                 text="Clear Finda STG App Cache"
                 description="Clear finda stage app cache"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.addServerConfig.AddServerConfigAction"
-                class="kr.co.finda.androidtemplate.feature.addServerConfig.AddServerConfigAction"
+        <action id="kr.co.finda.findaplugin.action.AddServerConfigAction"
+                class="kr.co.finda.findaplugin.action.AddServerConfigAction"
                 text="Add Server Config"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.showOverdraw.ShowOverdrawAction"
-                class="kr.co.finda.androidtemplate.feature.showOverdraw.ShowOverdrawAction" text="Show/Hide Overdraw"
+        <action id="kr.co.finda.findaplugin.action.ShowOverdrawAction"
+                class="kr.co.finda.findaplugin.action.ShowOverdrawAction" text="Show/Hide Overdraw"
                 description="Show or hide overdraw"
                 icon="Icons.FindaLogo">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
-        <action id="kr.co.finda.androidtemplate.feature.installImmediately.InstallImmediatelyAction"
-                class="kr.co.finda.androidtemplate.feature.installImmediately.InstallImmediatelyAction"
-                text="Install Finda STG Immediately"
-                description="Install Finda STG Immediately"
+        <action id="kr.co.finda.findaplugin.action.ResignAction"
+                class="kr.co.finda.findaplugin.action.ResignAction" text="Re-sign Finda Aab "
+                description="Re-sign finda aab"
                 icon="Icons.FindaLogo">
-            <add-to-group group-id="ToolsMenu" anchor="last"/>
-        </action>
-        <action id="kr.co.finda.androidtemplate.feature.resign.ResignAction"
-                class="kr.co.finda.androidtemplate.feature.resign.ResignAction" text="Re-sign Finda Aab "
-                description="Re-sign finda aab">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
     </actions>
 
     <extensions defaultExtensionNs="com.intellij">
         <defaultLiveTemplates file="/liveTemplates/FindaTest.xml"/>
-        <liveTemplateContext
-                implementation="kr.co.finda.androidtemplate.feature.liveTemplate.FindaTestTemplateContextType"/>
 
-        <applicationService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpStateComponent"/>
-        <projectService serviceImplementation="kr.co.finda.androidtemplate.feature.waistUp.WaistUpService"/>
+        <applicationService serviceImplementation="kr.co.finda.findaplugin.persistent.WaistUpStateComponent"/>
+        <projectService serviceImplementation="kr.co.finda.findaplugin.service.WaistUpService"/>
 
         <applicationConfigurable parentId="tools"
-                                 instance="kr.co.finda.androidtemplate.feature.setting.FindaSettingConfigurable"
-                                 id="kr.co.finda.androidtemplate.feature.setting.FindaSettingConfigurable"
+                                 instance="kr.co.finda.findaplugin.configuration.FindaSettingConfigurable"
+                                 id="kr.co.finda.findaplugin.configuration.FindaSettingConfigurable"
                                  displayName="Finda Settings"/>
 
         <inspectionToolProvider
-                implementation="kr.co.finda.androidtemplate.feature.inspection.FindaInspectionProvider"/>
+                implementation="kr.co.finda.findaplugin.inspection.FindaInspectionProvider"/>
     </extensions>
 
     <applicationListeners>
         <listener
-                class="kr.co.finda.androidtemplate.FindaProjectManagerListener"
+                class="kr.co.finda.findaplugin.FindaProjectManagerListener"
                 topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>
