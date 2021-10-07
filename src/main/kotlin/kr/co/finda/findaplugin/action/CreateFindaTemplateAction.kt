@@ -122,7 +122,7 @@ class CreateFindaTemplateAction : AnAction() {
         TemplateUtil.createFileWithTemplate(
             Template.LAYOUT,
             fileNameWithExtension,
-            selectedDirectory,
+            layoutDirectory,
             TemplateParam.VIEW_MODEL_PACKAGE to "${packageName}.${name}ViewModel",
             TemplateParam.PACKAGE to packageName,
             TemplateParam.LAYOUT to layoutName

@@ -28,7 +28,7 @@ object TemplateUtil {
         val templateFileInputStream = ResourceUtil.getResourceAsStream(
             javaClass.classLoader,
             "templates",
-            "${templateName}.txt"
+            templateName
         )
         return templateFileInputStream.bufferedReader()
             .readLines()
