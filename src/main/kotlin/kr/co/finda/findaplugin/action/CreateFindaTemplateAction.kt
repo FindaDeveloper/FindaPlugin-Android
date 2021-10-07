@@ -135,7 +135,7 @@ class CreateFindaTemplateAction : AnAction() {
         screenType: ScreenType,
         name: String
     ): String {
-        return "${screenType.name.decapitalize()}_${name.decapitalizeWithUnderBar()}"
+        return "${screenType.name.toLowerCase()}_${name.decapitalizeWithUnderBar()}"
     }
 
     private fun getLayoutDirectory(selectedDirectoryPath: String): VirtualFile? {
