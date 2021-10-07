@@ -1,9 +1,10 @@
 package kr.co.finda.findaplugin.model
 
 enum class ScreenType(
-    val postfix: String
+    val postfix: String,
+    val template: Template
 ) {
-    ACTIVITY("Activity"),
-    FRAGMENT("Fragment"),
-    BOTTOM_SHEET("BottomSheet"),
+    ACTIVITY("Activity", Template.ACTIVITY),
+    FRAGMENT("Fragment", Template.FRAGMENT),
+    BOTTOM_SHEET("BottomSheet", Template.BOTTOM_SHEET),
 }

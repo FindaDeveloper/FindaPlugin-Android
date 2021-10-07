@@ -7,8 +7,8 @@
     <depends>org.jetbrains.android</depends>
 
     <actions>
-        <action id="kr.co.finda.findaplugin.action.createFindaTemplate.action.CreateFindaTemplateAction"
-                class="kr.co.finda.findaplugin.action.createFindaTemplate.action.CreateFindaTemplateAction"
+        <action id="kr.co.finda.findaplugin.action.CreateFindaTemplateAction"
+                class="kr.co.finda.findaplugin.action.CreateFindaTemplateAction"
                 text="New Finda Template"
                 description="This is Finda"
                 icon="Icons.FindaLogo">

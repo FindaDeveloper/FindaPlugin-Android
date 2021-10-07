@@ -1,4 +1,4 @@
-package kr.co.finda.findaplugin.action.createFindaTemplate.action
+package kr.co.finda.findaplugin.action
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -10,12 +10,15 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.vfs.VirtualFileManager
 import com.intellij.ui.EnumComboBoxModel
 import com.intellij.ui.components.JBTextField
-import com.intellij.util.ResourceUtil
 import com.intellij.util.ui.FormBuilder
 import kr.co.finda.findaplugin.ext.DialogUi
 import kr.co.finda.findaplugin.ext.decapitalizeWithUnderBar
 import kr.co.finda.findaplugin.ext.showDialog
 import kr.co.finda.findaplugin.model.ScreenType
+import kr.co.finda.findaplugin.model.Template
+import kr.co.finda.findaplugin.model.TemplateParam
+import kr.co.finda.findaplugin.util.DirectoryUtil
+import kr.co.finda.findaplugin.util.TemplateUtil
 import javax.swing.JPanel
 
 class CreateFindaTemplateAction : AnAction() {
@@ -33,7 +36,7 @@ class CreateFindaTemplateAction : AnAction() {
                 return@showDialog
             }
 
-            val packageName = getPackageByPath(selectedDirectory.path)
+            val packageName = DirectoryUtil.getPackageByPath(selectedDirectory.path)
             createScreenCodeFile(name, packageName, screenType, selectedDirectory)
             createViewModelFile(name, packageName, selectedDirectory)
             createLayoutFile(project, name, packageName, screenType, selectedDirectory)
@@ -59,14 +62,6 @@ class CreateFindaTemplateAction : AnAction() {
         return hasScreenFile || hasViewModelFile
     }
 
-    private fun getPackageByPath(path: String): String {
-        val splited = path.split("(java/|kotlin/)".toRegex())
-        if (splited.size <= 1) {
-            return ""
-        }
-        return splited[1].replace("/", ".")
-    }
-
     private fun createScreenCodeFile(
         name: String,
         packageName: String,
@@ -74,14 +69,17 @@ class CreateFindaTemplateAction : AnAction() {
         selectedDirectory: VirtualFile
     ) {
         val fileNameWithExtension = "${name}${screenType.postfix}.kt"
-        val createdFile = selectedDirectory.createChildData(this, fileNameWithExtension)
-        val templateContent = getTemplateContentByName("${screenType.postfix}Template")
-        val layoutName = getLayoutName(screenType, name)
-        val replaced = templateContent.replace("\$NAME$", name)
-            .replace("\$PACKAGE$", packageName)
-            .replace("\$LAYOUT_NAME$", layoutName)
 
-        VfsUtil.saveText(createdFile, replaced)
+        val layoutName = getLayoutName(screenType, name)
+
+        TemplateUtil.createFileWithTemplate(
+            screenType.template,
+            fileNameWithExtension,
+            selectedDirectory,
+            TemplateParam.NAME to name,
+            TemplateParam.PACKAGE to packageName,
+            TemplateParam.LAYOUT to layoutName
+        )
     }
 
     private fun createViewModelFile(
@@ -90,12 +88,14 @@ class CreateFindaTemplateAction : AnAction() {
         selectedDirectory: VirtualFile
     ) {
         val fileNameWithExtension = "${name}ViewModel.kt"
-        val createdFile = selectedDirectory.createChildData(this, fileNameWithExtension)
-        val templateContent = getTemplateContentByName("ViewModelTemplate")
-        val replaced = templateContent.replace("\$NAME$", name)
-            .replace("\$PACKAGE$", packageName)
 
-        VfsUtil.saveText(createdFile, replaced)
+        TemplateUtil.createFileWithTemplate(
+            Template.VIEW_MODEL,
+            fileNameWithExtension,
+            selectedDirectory,
+            TemplateParam.NAME to name,
+            TemplateParam.PACKAGE to packageName
+        )
     }
 
     private fun createLayoutFile(
@@ -112,23 +112,16 @@ class CreateFindaTemplateAction : AnAction() {
             return
         }
 
-        val templateName = "LayoutTemplate"
-        val createdFile = layoutDirectory.createChildData(this, "${layoutName}.xml")
-        val templateContent = getTemplateContentByName(templateName)
-        val replaced = templateContent.replace("\$VM_PACKAGE$", "${packageName}.${name}ViewModel")
+        val fileNameWithExtension = "${layoutName}.xml"
 
-        VfsUtil.saveText(createdFile, replaced)
-    }
-
-    private fun getTemplateContentByName(templateName: String): String {
-        val templateFileInputStream = ResourceUtil.getResourceAsStream(
-            javaClass.classLoader,
-            "templates",
-            "${templateName}.txt"
+        TemplateUtil.createFileWithTemplate(
+            Template.LAYOUT,
+            fileNameWithExtension,
+            selectedDirectory,
+            TemplateParam.VIEW_MODEL_PACKAGE to "${packageName}.${name}ViewModel",
+            TemplateParam.PACKAGE to packageName,
+            TemplateParam.LAYOUT to layoutName
         )
-        return templateFileInputStream.bufferedReader()
-            .readLines()
-            .reduce { acc, s -> "${acc}\n${s}" }
     }
 
     private fun getLayoutName(

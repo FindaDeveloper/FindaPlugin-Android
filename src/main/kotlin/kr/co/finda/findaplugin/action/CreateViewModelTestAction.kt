@@ -10,7 +10,12 @@ import com.intellij.util.ResourceUtil
 import com.intellij.util.ui.FormBuilder
 import kr.co.finda.findaplugin.ext.DialogUi
 import kr.co.finda.findaplugin.ext.showDialog
+import kr.co.finda.findaplugin.model.Template
+import kr.co.finda.findaplugin.model.TemplateParam
+import kr.co.finda.findaplugin.util.DirectoryUtil
+import kr.co.finda.findaplugin.util.TemplateUtil
 import javax.swing.JPanel
+
 
 class CreateViewModelTestAction : AnAction() {
 
@@ -26,13 +31,14 @@ class CreateViewModelTestAction : AnAction() {
                 return@showDialog
             }
 
-            val packageName = getPackageByPath(selectedDirectory.path)
-            val createdFile = selectedDirectory.createChildData(this, fileNameWithExtension)
-            val templateContent = getTemplateContentByName("ViewModelTestTemplate")
-            val replaced = templateContent.replace("\$PACKAGE$", packageName)
-                .replace("\$NAME$", name)
-
-            VfsUtil.saveText(createdFile, replaced)
+            val packageName = DirectoryUtil.getPackageByPath(selectedDirectory.path)
+            TemplateUtil.createFileWithTemplate(
+                Template.VIEW_MODEL_TEST,
+                fileNameWithExtension,
+                selectedDirectory,
+                TemplateParam.NAME to name,
+                TemplateParam.PACKAGE to packageName,
+            )
         }
     }
 
@@ -47,25 +53,6 @@ class CreateViewModelTestAction : AnAction() {
         val file = VirtualFileManager.getInstance()
             .findFileByUrl("file://${selectedDirectoryPath}/${fileNameWithExtension}")
         return file != null
-    }
-
-    private fun getPackageByPath(path: String): String {
-        val splited = path.split("(java/|kotlin/)".toRegex())
-        if (splited.size <= 1) {
-            return ""
-        }
-        return splited[1].replace("/", ".")
-    }
-
-    private fun getTemplateContentByName(templateName: String): String {
-        val templateFileInputStream = ResourceUtil.getResourceAsStream(
-            javaClass.classLoader,
-            "templates",
-            "${templateName}.txt"
-        )
-        return templateFileInputStream.bufferedReader()
-            .readLines()
-            .reduce { acc, s -> "${acc}\n${s}" }
     }
 }
 
