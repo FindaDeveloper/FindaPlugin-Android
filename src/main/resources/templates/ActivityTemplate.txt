@@ -6,8 +6,7 @@ import kr.co.finda.finda.databinding.Activity$NAME$Binding
 import kr.co.finda.finda.ui.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
-class $NAME$Activity : BaseActivityV2<Activity$NAME$Binding, $NAME$ViewModel>(
+class $NAME$Activity : BaseActivity<Activity$NAME$Binding, $NAME$ViewModel>(
     R.layout.$LAYOUT_NAME$
 ) {
 
@@ -19,10 +18,8 @@ class $NAME$Activity : BaseActivityV2<Activity$NAME$Binding, $NAME$ViewModel>(
     }
 
     override fun setupUiComponent() {
-
     }
 
     override fun observeLiveData() {
-
     }
 }

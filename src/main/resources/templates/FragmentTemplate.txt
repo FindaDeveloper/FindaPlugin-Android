@@ -9,6 +9,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 class $NAME$Fragment : BaseFragment<Fragment$NAME$Binding, $NAME$ViewModel>(
     R.layout.$LAYOUT_NAME$
 ) {
+
     override val viewModel: $NAME$ViewModel by sharedViewModel()
 
     override fun onInitialize(lifecycleOwner: LifecycleOwner) {
@@ -17,10 +18,8 @@ class $NAME$Fragment : BaseFragment<Fragment$NAME$Binding, $NAME$ViewModel>(
     }
 
     override fun setupUiComponent() {
-
     }
 
     override fun observeLiveData() {
-
     }
 }

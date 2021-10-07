@@ -1,6 +1,6 @@
 package $PACKAGE$
 
-import kr.co.finda.BasicTest
+import kr.co.finda.finda.coretest.BasicTest
 import org.junit.jupiter.api.BeforeEach
 
 class $NAME$ViewModelTest : BasicTest() {
@@ -12,5 +12,4 @@ class $NAME$ViewModelTest : BasicTest() {
 
         viewModel = $NAME$ViewModel()
     }
-
 }
