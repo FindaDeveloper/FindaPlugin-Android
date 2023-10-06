@@ -5,6 +5,7 @@ enum class ScreenType(
     val template: Template
 ) {
     ACTIVITY("Activity", Template.ACTIVITY),
-    FRAGMENT("Fragment", Template.FRAGMENT),
-    BOTTOM_SHEET("BottomSheet", Template.BOTTOM_SHEET),
+    EES("Ees", Template.EES),
+    SCREEN("Screen", Template.SCREEN),
+    VIEW_MODEL("ViewModel", Template.VIEW_MODEL),
 }

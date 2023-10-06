@@ -32,7 +32,7 @@ class CreateViewModelTestAction : AnAction() {
 
             val packageName = FileUtil.getPackageByPath(selectedDirectory.path)
             TemplateUtil.createFileWithTemplate(
-                Template.VIEW_MODEL_TEST,
+                Template.VIEW_MODEL,
                 fileNameWithExtension,
                 selectedDirectory,
                 TemplateParam.NAME to name,

@@ -1,25 +1,27 @@
 package $PACKAGE$
 
-import androidx.lifecycle.LifecycleOwner
-import kr.co.finda.finda.R
-import kr.co.finda.finda.databinding.Activity$NAME$Binding
-import kr.co.finda.finda.ui.base.BaseActivity
+import android.os.Bundle
+import androidx.activity.compose.setContent
+import androidx.compose.runtime.collectAsState
+import kr.co.finda.finda.core.base.mvi.BaseFindaActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class $NAME$Activity : BaseActivity<Activity$NAME$Binding, $NAME$ViewModel>(
-    R.layout.$LAYOUT_NAME$
-) {
+class $NAME$Activity
+    : BaseFindaActivity<$NAME$State, $NAME$ViewEffect, $NAME$ViewEvent, $NAME$ViewModel>() {
 
     override val viewModel: $NAME$ViewModel by viewModel()
 
-    override fun onInitialize(lifecycleOwner: LifecycleOwner) {
-        super.onInitialize(lifecycleOwner)
-        binding.viewModel = viewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            $NAME$Screen(
+                state = viewModel.state.collectAsState().value,
+                onEvent = viewModel::onEvent
+            )
+        }
     }
 
-    override fun setupUiComponent() {
-    }
+    override fun handleSideEffect(sideEffect: $NAME$ViewEffect) {
 
-    override fun observeLiveData() {
     }
 }

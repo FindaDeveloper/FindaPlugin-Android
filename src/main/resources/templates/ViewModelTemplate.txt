@@ -1,8 +1,17 @@
 package $PACKAGE$
 
-import kr.co.finda.finda.ui.base.BaseViewModel
+import kr.co.finda.finda.core.base.mvi.BaseFindaViewModel
+import kotlinx.coroutines.CoroutineScope
 
-class $NAME$ViewModel : BaseViewModel() {
+class $NAME$ViewModel(
+    initialState: $NAME$State = $NAME$State()
+) : BaseFindaViewModel<$NAME$State, $NAME$ViewEffect, $NAME$ViewEvent>(initialState) {
 
+    override fun collectDataFlow(scope: CoroutineScope) {
 
+    }
+
+    override fun onEvent(event: $NAME$ViewEvent) {
+
+    }
 }

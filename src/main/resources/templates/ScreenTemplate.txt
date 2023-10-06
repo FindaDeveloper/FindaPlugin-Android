@@ -1,0 +1,21 @@
+package $PACKAGE$
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+
+@Composable
+fun $NAME$Screen(
+    state: $NAME$State,
+    onEvent: ($NAME$ViewEvent) -> Unit
+) {
+
+}
+
+@Preview(showBackground = true)
+@Composable
+fun $NAME$ScreenPreview() {
+    $NAME$Screen(
+        state = $NAME$State(),
+        onEvent = {}
+    )
+}

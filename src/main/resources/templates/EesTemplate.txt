@@ -1,0 +1,19 @@
+package $PACKAGE$
+
+import kr.co.finda.finda.core.base.mvi.ViewEffect
+import kr.co.finda.finda.core.base.mvi.ViewEvent
+import kr.co.finda.finda.core.base.mvi.ViewState
+
+sealed class $NAME$ViewEvent : ViewEvent {
+
+}
+
+sealed class $NAME$ViewEffect : ViewEffect {
+
+}
+
+data class $NAME$State(
+    val temp: String? = null
+) : ViewState {
+
+}
